@@ -7,14 +7,13 @@ import { useMoralis } from 'react-moralis'
 import { useSignUp } from '../../utils/signUpMoralis'
 import { useStyles } from '../../styles/auth.style'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Register() {
   const classes = useStyles()
   const isMobile = useMediaQuery('(max-width:600px)')
   const [userType, setUserType] = useState('contributor')
-  const { signup, isAuthenticated, authError, userError } = useMoralis()
   const { register, handleSubmit } = useForm()
+  const { signup, isAuthenticated, authError, userError, user } = useMoralis()
 
   const router = useRouter()
 
@@ -31,10 +30,19 @@ export default function Register() {
   }
 
   useEffect(() => {
-    if (isAuthenticated) {
-      router.push(`/dashboard/${userType}`)
+    if (isAuthenticated && user) {
+      router.push(`/dashboard/${user.get("userType")}`)
     }
-  }, [isAuthenticated, router])
+
+    // Auth Error Handler
+    if (authError) {
+      alert(authError.message);
+    }
+    if (userError) {
+      alert(userError.message);
+    }
+  }, [isAuthenticated, user, router, authError, userError])
+
 
   return (
     <>
@@ -114,7 +122,7 @@ export default function Register() {
 
               <Grid container>
                 <Grid item xs>
-                  <Link href='/' variant="body2">
+                  <Link href='/login' variant="body2">
                     Already Registered ? Login instead
                   </Link>
                 </Grid>
@@ -126,70 +134,6 @@ export default function Register() {
         </Grid>
       </Grid>
 
-
-      {/* 
-      <form onSubmit={handleSubmit(OnSubmit)}>
-        <div className='relative w-full mb-3'>
-          <label
-            className='block uppercase text-blueGray-600 text-xs font-bold mb-2'
-            htmlFor='grid-password'
-          >
-            User Name
-          </label>
-          <input
-            type='name'
-            {...register('name')}
-            className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150'
-            placeholder='Name'
-          />
-        </div>
-
-        <div className='relative w-full mb-3'>
-          <label
-            className='block uppercase text-blueGray-600 text-xs font-bold mb-2'
-            htmlFor='grid-password'
-          >
-            Email
-          </label>
-          <input
-            type='email'
-            {...register('email')}
-            className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150'
-            placeholder='Email'
-          />
-        </div>
-
-        <div className='relative w-full mb-3'>
-          <label
-            className='block uppercase text-blueGray-600 text-xs font-bold mb-2'
-            htmlFor='grid-password'
-          >
-            Password
-          </label>
-          <input
-            type='password'
-            {...register('password')}
-            className='border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150'
-            placeholder='Password'
-          />
-        </div>
-        <select
-          {...register('userType')}
-        >
-          <option value={'Innovator'}>Innovator</option>
-          <option value={'Contributor'}>Contributor</option>
-        </select>
-
-
-        <div className='text-center mt-6'>
-          <button
-            className='bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'
-            type='submit'
-          >
-            Create Account
-          </button>
-        </div>
-      </form> */}
     </>
   )
 }
