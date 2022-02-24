@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TechFund
 
-## Getting Started
+> An evolutionary ecosystem that uses decentralization to connect contributors with innovators, ultimately making new business ideas touch the moon.
 
-First, run the development server:
+<br />
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Submission or project name](#submission-or-project-name)
+- [Contents](#contents)
+- [Short description](#short-description)
+- [What's the problem?](#whats-the-problem)
+- [How can technology help?](#how-can-technology-help)
+- [The idea](#the-idea)
+- [Live demo](#live-demo)
+- [Built With](#built-with)
+- [Authors](#authors)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br />
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Design
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[Figma Link](<https://www.figma.com/file/hozwycWVyAwh916sWzRua8/Design-Heist-(HackOverFlow)?node-id=0%3A1>)
 
-## Learn More
+<br />
 
-To learn more about Next.js, take a look at the following resources:
+## Built with
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Nest (For Frontend)
+- Material-UI (For Styling)
+- React-Moralis (For Backend and Decentralised part)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br />
 
-## Deploy on Vercel
+## Authors
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1.  [Rohan Karmakar](https://github.com/krohan1202)
+2.  [Shubham Dutta](https://github.com/Shubhamdutta2000)
+3.  [Amitrajit Das](https://github.com/AmitrajitDas)
+4.  [Snehomoy Maitra](https://github.com/Snehomoy100)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br />
+
+## LICENSE
+
+This project is licensed under the Apache 2 License - see the [LICENSE](LICENSE) file for details.
+
+<br />
+
+## Acknowledgments
+
+- Based on real time applications.
