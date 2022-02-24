@@ -26,7 +26,7 @@ export default function Login() {
   useEffect(() => {
     if (isAuthenticated) {
       console.log("Authenticated");
-      router.push('/admin/dashboard')
+      router.push(`/dashboard/${userType}`)
     }
   }, [isAuthenticated, router])
 

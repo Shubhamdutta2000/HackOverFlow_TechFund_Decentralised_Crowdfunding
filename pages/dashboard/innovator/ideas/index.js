@@ -1,5 +1,5 @@
 const InnovatorIdeas = () => {
-  return <div>InnovatorIdeas</div>
+    return <div>InnovatorIdeas</div>
 }
 
 export default InnovatorIdeas

@@ -11,9 +11,9 @@ export const useSignUp = ({
     try {
         if (isAuthenticated) return;
 
-        if (authError) alert(authError.message);
+        if (authError) { console.log(authError); alert(authError.message); }
 
-        if (userError) alert(userError.message);
+        if (userError) { console.log(userError); alert(userError.message); }
 
         if (!userError && !isAuthenticated)
             signup(username, password, email, { userType: userType });
