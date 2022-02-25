@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
 
 // Create a theme instance.
 const theme = createTheme({
@@ -13,7 +12,12 @@ const theme = createTheme({
     // },
   },
   typography: {
-    fontFamily: "'Shizuru', sans-serif",
+    heading: {
+      fontFamily: "'Circular Std','Shizuru', sans-serif",
+    },
+    description: {
+      fontFamily: "'Euclid Circular A','Shizuru', sans-serif",
+    },
   },
 });
 

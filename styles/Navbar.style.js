@@ -10,7 +10,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   navLogo: {
     position: "relative",
-    width: "7.5rem",
+    width: "0.5rem",
     // left: "4.4vw",
     marginTop: "0.3rem",
     flexGrow: 1,
@@ -23,16 +23,17 @@ export const useStyles = makeStyles((theme) => ({
   allNavItems: {
     position: "relative",
     display: "flex",
-    justifyContent: "center",
-    width: "33vw",
+    justifyContent: "sapce-between",
+    width: "35.5vw",
   },
   navItems: {
     color: "#000",
     flexGrow: 1,
-    fontWeight: "600",
-    fontSize: "1.15rem",
+    fontWeight: "500",
+    fontSize: "1.2rem",
     // fontFamily: "'Shizuru', sans-serif",
-    margin: "0.3rem 2.67rem 0",
+    margin: "0.3rem 1.6rem 0",
+    cursor: "pointer",
     "&:hover": {
       color: "#5145FF",
     },
@@ -41,11 +42,12 @@ export const useStyles = makeStyles((theme) => ({
     color: "#fff",
     textTransform: "none",
     // flexGrow: 1,
-    fontWeight: "600",
-    fontSize: "1.1vw",
-    margin: "0 2.67rem",
+    fontWeight: "500",
+    fontSize: "1.2rem",
+    fontFamily: "'Euclid Circular A', sans-serif",
+    margin: "0 0 0 1.5rem",
     borderRadius: "100rem",
-    padding: "0.15rem 2.9rem",
+    padding: "0.1rem 1.67rem 0.2rem",
     border: "2px solid #333CFF",
     backgroundColor: "#333CFF",
     "&:hover": {
@@ -62,10 +64,6 @@ export const useStyles = makeStyles((theme) => ({
     width: "10vw",
     height: "10vw",
   },
-  //   list: {
-  //     width: sideNavWidth,
-  //   },
-
   mobilenavItems: {
     color: "#4D7178",
     fontWeight: 600,

@@ -80,28 +80,39 @@ export default function Navbar(props) {
 
   return (
     <>
-      <div style={{ backgroundColor: "grey", padding: "0 8rem" }}>
-        <Toolbar>
+      <div style={{ backgroundColor: "grey", padding: "0 7.5rem" }}>
+        <Toolbar style={{ padding: "1.1rem 0" }}>
           <Link href="/">
-            <img src="ss" className={classes.navLogo} alt="nav logo" />
+            <img src="abcd" className={classes.navLogo} alt="nav logo" />
           </Link>
           {!isMobile ? (
             <div className={classes.allNavItems}>
               {/* ---------------Desktop View Nav items-------------------------- */}
               <Link href="/" style={{ textDecoration: "none" }}>
-                <Typography className={classes.navItems}>Learn</Typography>
+                <Typography variant="description" className={classes.navItems}>
+                  Learn
+                </Typography>
               </Link>
 
               <Link href="/about-us" style={{ textDecoration: "none" }}>
-                <Typography className={classes.navItems}>Contribute</Typography>
+                <Typography variant="description" className={classes.navItems}>
+                  Contribute
+                </Typography>
               </Link>
 
               <Link href="/pricing" style={{ textDecoration: "none" }}>
-                <Typography className={classes.navItems}>Discover</Typography>
+                <Typography variant="description" className={classes.navItems}>
+                  Discover
+                </Typography>
               </Link>
 
               <Link href="/pricing" style={{ textDecoration: "none" }}>
-                <Button className={classes.navItems_Login}>Login</Button>
+                <Button
+                  variant="description"
+                  className={classes.navItems_Login}
+                >
+                  Login
+                </Button>
               </Link>
             </div>
           ) : (

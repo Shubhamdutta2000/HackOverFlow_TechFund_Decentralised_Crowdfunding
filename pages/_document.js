@@ -12,6 +12,14 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link
+            href="http://fonts.cdnfonts.com/css/circular-std"
+            rel="stylesheet"
+          />
+          <link
+            href="http://fonts.cdnfonts.com/css/euclid-circular-a"
+            rel="stylesheet"
+          />
+          <link
             href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap"
             rel="stylesheet"
           />
