@@ -1,6 +1,9 @@
 import Head from "next/head";
+
+//Components
+import Navbar from "../components/Navbar.js";
+
 import styles from "../styles/Home.module.css";
-import m from "../public/vercel.svg";
 
 export default function Home() {
   return (
@@ -15,10 +18,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="/">Tech-Fund</a>
-        </h1>
-        <img src="assets/desktop/HeroBlackBg.png" alt="m" />
+        <Navbar />
+        {/* <img src="assets/desktop/HeroBlackBg.png" alt="m" /> */}
       </main>
     </div>
   );
