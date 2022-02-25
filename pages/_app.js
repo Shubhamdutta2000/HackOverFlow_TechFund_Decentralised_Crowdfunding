@@ -1,11 +1,10 @@
-import { MoralisProvider } from 'react-moralis'
-import CssBaseline from '@mui/material/CssBaseline';
+import { MoralisProvider } from "react-moralis";
+import CssBaseline from "@mui/material/CssBaseline";
 import ThemeProvider from "@/config/StyledMaterialThemeProvider";
 
-import theme from '@/config/theme';
+import theme from "@/config/theme";
 
 function MyApp({ pageProps, Component }) {
-
   return (
     <MoralisProvider
       appId={process.env.NEXT_PUBLIC_AMITRAJIT_APP_ID}
@@ -16,7 +15,7 @@ function MyApp({ pageProps, Component }) {
         <Component {...pageProps} />
       </ThemeProvider>
     </MoralisProvider>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

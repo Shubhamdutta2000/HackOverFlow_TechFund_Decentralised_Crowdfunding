@@ -11,31 +11,14 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap"
+            rel="stylesheet"
+          />
           <meta charSet="utf-8" />
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
         </Head>
-        <style jsx global>
-          {`
-            html,
-            body {
-              padding: 0;
-              margin: 0;
-              font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-                Oxygen, Ubuntu, Cantarell, Fica Sans, Droid Sans, Helvetica Neue,
-                sans-serif;
-            }
-
-            a {
-              color: inherit;
-              text-decoration: none;
-            }
-
-            * {
-              box-sizing: border-box;
-            }
-          `}
-        </style>
         <body>
           <Main />
           <NextScript />
