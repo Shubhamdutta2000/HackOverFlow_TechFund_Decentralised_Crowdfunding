@@ -88,6 +88,7 @@ const IdeaForm = () => {
               onChange={(e) => handleChange(e)}
             />
             <Button
+              fullWidth
               variant='contained'
               color='primary'
               className={classes.btn}
