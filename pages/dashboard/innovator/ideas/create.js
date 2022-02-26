@@ -1,10 +1,11 @@
 import IdeaForm from "components/CreateIdea/IdeaForm"
 import IdeaHeader from "components/CreateIdea/IdeaHeader"
+import Layout from "layout/Layout";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 // import { useMoralis } from "react-moralis"
 
-const CreateIdea = () => {
+export default function CreateIdea() {
     const router = useRouter()
     // const { isAuthenticated, user } = useMoralis()
 
@@ -25,4 +26,5 @@ const CreateIdea = () => {
     )
 }
 
-export default CreateIdea
+CreateIdea.layout = Layout
+

@@ -116,22 +116,22 @@ export default function Navbar(props) {
                 </Typography>
               </Link>
 
-              {isAuthenticated ?
+              {!isAuthenticated ?
                 <Link href="/login" style={{ textDecoration: "none" }}>
                   <Button
                     variant="description"
                     className={classes.navItems_Login}
-                    onClick={logoutHandler}
                   >
-                    Logout
+                    Login
                   </Button>
                 </Link>
                 :
                 <Button
                   variant="description"
                   className={classes.navItems_Login}
+                  onClick={logoutHandler}
                 >
-                  Login
+                  Logout
                 </Button>
               }
             </div>
