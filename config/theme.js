@@ -7,9 +7,10 @@ const theme = createTheme({
     // secondary: { main: "#141414" }, // black
     alternate: { main: "#fff" },
     error: { main: "#F8485E" }, // red
-    // background: {
-    //   default: "#141414", // black bg
-    // },
+    background: {
+      primary: "#fff",
+      secondary: "#141414",
+    },
   },
   typography: {
     heading: {
