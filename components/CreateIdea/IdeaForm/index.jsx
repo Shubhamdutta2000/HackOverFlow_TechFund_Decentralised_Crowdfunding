@@ -9,6 +9,7 @@ import {
   Button,
 } from '@mui/material'
 import { useStyles } from '../../../styles/CreateIdea/ideaForm/ideaForm.style'
+import { useMoralis, useNewMoralisObject } from 'react-moralis'
 
 const IdeaForm = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +22,10 @@ const IdeaForm = () => {
   const classes = useStyles()
   const isMobile = useMediaQuery('(max-width:600px)')
 
+  const { authenticate, isAuthenticated, isAuthenticating, logout } =
+    useMoralis()
+  const { isSaving, error, save } = useNewMoralisObject('Idea')
+
   const handleChange = (e) => {
     e.preventDefault()
     setFormData((f) => ({
@@ -31,7 +36,8 @@ const IdeaForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(formData)
+    save(formData)
+    console.log(error ? error : formData)
   }
 
   return (
@@ -80,6 +86,7 @@ const IdeaForm = () => {
               color='button'
               className={classes.btn}
               type='submit'
+              disabled={isSaving}
             >
               Submit Idea
             </Button>
