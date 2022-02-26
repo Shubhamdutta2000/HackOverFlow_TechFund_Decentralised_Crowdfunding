@@ -7,6 +7,7 @@ import { useMoralis } from 'react-moralis'
 import { useSignUp } from '../../utils/signUpMoralis'
 import { useStyles } from '../../styles/auth.style'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Register() {
   const classes = useStyles()
@@ -30,6 +31,7 @@ export default function Register() {
   }
 
   useEffect(() => {
+    console.log(user);
     if (isAuthenticated && user) {
       router.push(`/dashboard/${user.get("userType")}`)
     }
@@ -38,9 +40,6 @@ export default function Register() {
     if (authError) {
       alert(authError.message);
     }
-    if (userError) {
-      alert(userError.message);
-    }
   }, [isAuthenticated, user, router, authError, userError])
 
 
@@ -48,7 +47,13 @@ export default function Register() {
     <>
       <Grid container spacing={'14'} component="main" className={classes.root}>
         <Grid item xs={false} sm={false} md={5}  >
-          <img src="" layout='fill' className={isMobile ? classes.display : classes.image} />
+          <Image
+            src='/assets/desktop/LoginImg.png'
+            alt='vector'
+            width={1000}
+            height={1100}
+            className={isMobile ? classes.display : classes.image}
+          />
         </Grid>
 
         <Grid item xs={12} sm={12} md={7} component={Paper} elevation={0} >

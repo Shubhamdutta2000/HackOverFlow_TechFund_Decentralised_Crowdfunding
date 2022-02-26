@@ -88,25 +88,25 @@ export default function Navbar(props) {
           {!isMobile ? (
             <div className={classes.allNavItems}>
               {/* ---------------Desktop View Nav items-------------------------- */}
-              <Link href="/" style={{ textDecoration: "none" }}>
+              <Link href="/learn" style={{ textDecoration: "none" }}>
                 <Typography variant="description" className={classes.navItems}>
                   Learn
                 </Typography>
               </Link>
 
-              <Link href="/about-us" style={{ textDecoration: "none" }}>
+              <Link href="/ideas/:id" style={{ textDecoration: "none" }}>
                 <Typography variant="description" className={classes.navItems}>
                   Contribute
                 </Typography>
               </Link>
 
-              <Link href="/pricing" style={{ textDecoration: "none" }}>
+              <Link href="/ideas" style={{ textDecoration: "none" }}>
                 <Typography variant="description" className={classes.navItems}>
                   Discover
                 </Typography>
               </Link>
 
-              <Link href="/pricing" style={{ textDecoration: "none" }}>
+              <Link href="/login" style={{ textDecoration: "none" }}>
                 <Button
                   variant="description"
                   className={classes.navItems_Login}
