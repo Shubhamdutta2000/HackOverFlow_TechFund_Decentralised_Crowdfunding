@@ -111,12 +111,22 @@ export default function Navbar(props) {
                 </Typography>
               </Link>
 
-              <Link href="/ideas/:id" style={{ textDecoration: "none" }}>
-                <Typography variant="description" className={classes.navItems}>
-                  Contribute
-                </Typography>
-              </Link>
+              {/* if user is authenticated and is of type of innovator then show 'post idea' otherwise show 'contribute' */}
+              {user && user.get("userType") === "innovator" ?
+                <Link href={`/dashboard/${user.get('userType')}/ideas/create`} style={{ textDecoration: "none" }}>
+                  <Typography variant="description" className={classes.navItems}>
+                    Post Idea
+                  </Typography>
+                </Link>
+                :
+                <Link href="/ideas/:id" style={{ textDecoration: "none" }}>
+                  <Typography variant="description" className={classes.navItems}>
+                    Contribute
+                  </Typography>
+                </Link>
+              }
 
+              {/* Show all ideas  */}
               <Link href="/ideas" style={{ textDecoration: "none" }} >
                 <Typography variant="description" className={classes.navItems}>
                   Discover
