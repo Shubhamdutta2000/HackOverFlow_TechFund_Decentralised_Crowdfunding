@@ -34,7 +34,7 @@ export const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     fontWeight: "500",
     fontSize: "1.2rem",
-    margin: "0.3rem 1.6vw 0",
+    margin: "0.41rem 1.6vw 0.41rem 0",
     cursor: "pointer",
   },
   navItems_Login: {
