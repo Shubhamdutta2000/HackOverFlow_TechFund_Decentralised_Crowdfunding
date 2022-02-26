@@ -38,12 +38,17 @@ export default function Login() {
 
   useEffect(() => {
     if (isAuthenticated && user) {
+      localStorage.setItem("user", JSON.stringify({ isAuthenticated: isAuthenticated }))
       router.push(`/dashboard/${user.get('userType')}`)
     }
 
     // Auth Error Handler
     if (authError) {
       alert(authError.message)
+    }
+
+    if (userError) {
+      alert(userError.message);
     }
   }, [isAuthenticated, user, router, authError, userError])
 
