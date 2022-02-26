@@ -5,7 +5,7 @@ import { ServerStyleSheet } from "styled-components";
 import theme from "@/config/theme";
 
 export default class MyDocument extends Document {
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
     return (
@@ -20,7 +20,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap"
+            href="http://fonts.cdnfonts.com/css/helvetica-255"
             rel="stylesheet"
           />
           <meta charSet="utf-8" />

@@ -13,7 +13,7 @@ export default function Footer() {
   const isMobile = useMediaQuery("(max-width:768px)");
 
   return (
-    <div style={{ position: "relative", marginTop: "2rem" }}>
+    <div style={{ position: "relative" }}>
       <div className={classes.footerBg}>
         <Image
           src={!isMobile ? FooterBgDesktop : FooterBgmobile}

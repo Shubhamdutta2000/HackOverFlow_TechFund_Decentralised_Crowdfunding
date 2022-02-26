@@ -28,7 +28,7 @@ import { useStyles } from "../styles/Navbar.style.js";
 
 export default function Navbar(props) {
   const classes = useStyles();
-  const isMobile = useMediaQuery("(max-width:768px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const [hamburger, setHamburger] = useState({
     right: false,
