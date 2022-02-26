@@ -74,14 +74,61 @@ export default function Navbar(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Learn", "Contribute", "Discover", "Login"].map((text, index) => (
-          <ListItem button key={text}>
+        <ListItem button>
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <ListItemText primary={'Learn'} />
+        </ListItem>
+
+        {/* if user is authenticated and is of type of innovator then show 'post idea' otherwise show 'contribute' */}
+        {user && user.get("userType") === "innovator" ?
+          <Link href={`/dashboard/${user.get('userType')}/ideas/create`} style={{ textDecoration: "none" }}>
+            <ListItem button>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Post Idea'} />
+            </ListItem>
+          </Link>
+          :
+          <Link href="/ideas/:id" style={{ textDecoration: "none" }}>
+            <ListItem button>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Contribute'} />
+            </ListItem>
+          </Link>
+        }
+
+        {/* Discover ideas */}
+        <Link href="/ideas" style={{ textDecoration: "none" }} >
+          <ListItem button>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              <InboxIcon />
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <ListItemText primary={'Discover'} />
           </ListItem>
-        ))}
+        </Link>
+
+        {isAuthenticated ?
+          <ListItem button onClick={logoutHandler}>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText primary={'Logout'} />
+          </ListItem>
+          :
+          <Link href="/login" style={{ textDecoration: "none" }} >
+            <ListItem button>
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Login'} />
+            </ListItem>
+          </Link>
+        }
       </List>
       <Divider />
     </Box>
@@ -98,7 +145,7 @@ export default function Navbar(props) {
           }}
         >
           <div className={classes.navLogo}>
-            <Link href="/">
+            <Link href="/" style={{ cursor: 'pointer' }}>
               <Image src={NavLogo} alt="Picture of the author" />
             </Link>
           </div>
