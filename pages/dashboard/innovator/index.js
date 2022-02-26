@@ -7,8 +7,9 @@ const InnovatorDashboard = () => {
     // const { isAuthenticated, user } = useMoralis()
 
     useEffect(() => {
-        const isAuthenticated = JSON.parse(localStorage.getItem("user")).isAuthenticated
-        console.log(isAuthenticated);
+        const isAuthenticated = localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user")).isAuthenticated
+            : false;
         if (!isAuthenticated) {
             router.push("/login")
         }

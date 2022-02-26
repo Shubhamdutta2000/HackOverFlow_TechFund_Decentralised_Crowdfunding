@@ -22,11 +22,13 @@ import MailIcon from "@mui/icons-material/Mail";
 import { useMediaQuery } from "@mui/material";
 
 import { useStyles } from "../styles/Navbar.style.js";
+import { useMoralis } from "react-moralis";
 
 export default function Navbar(props) {
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width:600px)");
   const [toggle, setToggle] = useState(false);
+  const { logout, isAuthenticated } = useMoralis();
 
   const [state, setState] = useState({
     top: false,
@@ -34,6 +36,14 @@ export default function Navbar(props) {
     bottom: false,
     right: false,
   });
+
+
+  const logoutHandler = () => {
+    if (isAuthenticated) {
+      logout()
+      localStorage.removeItem("user")
+    }
+  }
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -106,14 +116,24 @@ export default function Navbar(props) {
                 </Typography>
               </Link>
 
-              <Link href="/login" style={{ textDecoration: "none" }}>
+              {isAuthenticated ?
+                <Link href="/login" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="description"
+                    className={classes.navItems_Login}
+                    onClick={logoutHandler}
+                  >
+                    Logout
+                  </Button>
+                </Link>
+                :
                 <Button
                   variant="description"
                   className={classes.navItems_Login}
                 >
                   Login
                 </Button>
-              </Link>
+              }
             </div>
           ) : (
             <>
