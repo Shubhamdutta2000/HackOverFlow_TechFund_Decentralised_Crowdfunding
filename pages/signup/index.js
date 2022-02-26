@@ -33,14 +33,10 @@ export default function Register() {
   useEffect(() => {
     console.log(user);
     if (isAuthenticated && user) {
+      localStorage.setItem("user", JSON.stringify({ isAuthenticated: isAuthenticated }))
       router.push(`/dashboard/${user.get("userType")}`)
     }
-
-    // Auth Error Handler
-    if (authError) {
-      alert(authError.message);
-    }
-  }, [isAuthenticated, user, router, authError, userError])
+  }, [isAuthenticated, user, router])
 
 
   return (
