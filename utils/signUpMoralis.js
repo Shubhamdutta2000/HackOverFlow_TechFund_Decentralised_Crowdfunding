@@ -9,13 +9,10 @@ export const useSignUp = ({
     userError,
 }) => {
     try {
-        if (!userError && !isAuthenticated && !authError) signup(username, email, password, userType)
+        if (!userError && !isAuthenticated && !authError) signup(username, email, password, { userType: userType })
 
         if (authError) {
             alert(authError.message);
-        }
-        if (userError) {
-            alert(userError.message);
         }
 
         // Hooray! Let them use the app now.

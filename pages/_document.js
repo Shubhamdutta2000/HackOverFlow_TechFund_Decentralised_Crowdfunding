@@ -5,7 +5,7 @@ import { ServerStyleSheet } from "styled-components";
 import theme from "@/config/theme";
 
 export default class MyDocument extends Document {
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
