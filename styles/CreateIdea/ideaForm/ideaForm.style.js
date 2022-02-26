@@ -17,6 +17,13 @@ export const useStyles = makeStyles((theme) => ({
   textarea: {
     width: '36rem',
   },
+  image: {
+    width: '100%',
+  },
+
+  display: {
+    display: 'none',
+  },
   btn: {
     width: '16rem',
     padding: '1rem',
