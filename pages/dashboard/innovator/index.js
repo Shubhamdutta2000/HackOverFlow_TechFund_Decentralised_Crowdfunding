@@ -12,7 +12,7 @@ const InnovatorDashboard = () => {
         if (!isAuthenticated && !user) {
             router.push("/login")
         }
-    }, [router])
+    }, [isAuthenticated, user])
 
 
     return <div>Dashboard</div>

@@ -31,27 +31,12 @@ const IdeaForm = () => {
   const { authenticate, isAuthenticated, isAuthenticating, logout, user } = useMoralis()
   const { isSaving, error, save } = useNewMoralisObject('Idea')
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/login")
-    }
-  }, [router, isAuthenticated])
-
-  useEffect(() => {
-    console.log(user);
-    if (user && isAuthenticated) {
-      setFormData((f) => ({
-        ...f,
-        createdBy: user.get("objectId")
-      }))
-    }
-  }, [user])
-
   const handleChange = (e) => {
     e.preventDefault()
     setFormData((f) => ({
       ...f,
       [e.target.name]: e.target.value,
+      createdBy: user && user.id
     }))
   }
 
