@@ -2,6 +2,7 @@ import Head from "next/head";
 
 //Components
 import Navbar from "../components/Navbar.js";
+import Footer from "../components/Footer.js";
 
 import styles from "../styles/Home.module.css";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <main className={styles.main}>
         <Navbar />
         {/* <img src="assets/desktop/HeroBlackBg.png" alt="m" /> */}
+        <Footer />
       </main>
     </div>
   );
