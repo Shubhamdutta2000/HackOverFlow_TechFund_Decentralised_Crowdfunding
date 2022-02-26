@@ -2,11 +2,10 @@ import React from 'react'
 // components
 import Navbar from 'components/Navbar'
 
-export default function Admin({ children }) {
+export default function Layout({ children }) {
     return (
         <>
             <Navbar />
-            {/* Header */}
             {children}
         </>
     )

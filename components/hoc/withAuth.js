@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useMoralis } from "react-moralis"
 
 const withAuth = (WrappedComponent) => {
     return (props) => {

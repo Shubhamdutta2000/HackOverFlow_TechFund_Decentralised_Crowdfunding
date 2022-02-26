@@ -1,7 +1,6 @@
 import { MoralisProvider } from "react-moralis";
 import CssBaseline from "@mui/material/CssBaseline";
 import ThemeProvider from "@/config/StyledMaterialThemeProvider";
-import Layout from "../layout/Layout"
 
 import theme from "@/config/theme";
 
@@ -14,9 +13,7 @@ function MyApp({ pageProps, Component }) {
     >
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </ThemeProvider>
     </MoralisProvider>
   );
