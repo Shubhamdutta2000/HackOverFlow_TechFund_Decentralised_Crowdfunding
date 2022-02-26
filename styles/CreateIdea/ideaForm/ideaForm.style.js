@@ -19,9 +19,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   btn: {
     width: '16rem',
-    padding: '1rem',
-    borderRadius: '53px',
-    color: 'white',
+    borderRadius: '50%',
     fontSize: '16px',
+    margin: theme.spacing(3, 0, 2),
+    color: '#fff',
   },
 }))

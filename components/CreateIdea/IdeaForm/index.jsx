@@ -89,10 +89,8 @@ const IdeaForm = () => {
             />
             <Button
               variant='contained'
-              color='button'
+              color='primary'
               className={classes.btn}
-              type='submit'
-              disabled={isSaving}
             >
               Submit Idea
             </Button>

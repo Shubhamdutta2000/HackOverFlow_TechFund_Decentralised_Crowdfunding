@@ -1,15 +1,14 @@
 import Link from "next/link";
-import Head from "next/head";
+import Image from "next/image";
 import { useState } from "react";
+
+import NavLogo from "../public/assets/NavLogo.svg";
 
 import {
   Box,
   Toolbar,
   Typography,
   Button,
-  IconButton,
-  MenuIcon,
-  Drawer,
   Divider,
   List,
   ListItem,
@@ -17,6 +16,7 @@ import {
   ListItemIcon,
   SwipeableDrawer,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useMediaQuery } from "@mui/material";
@@ -30,20 +30,16 @@ export default function Navbar(props) {
   const [toggle, setToggle] = useState(false);
   const { logout, isAuthenticated } = useMoralis();
 
-  const [state, setState] = useState({
-    top: false,
-    left: false,
-    bottom: false,
+  const [hamburger, setHamburger] = useState({
     right: false,
   });
 
-
   const logoutHandler = () => {
     if (isAuthenticated) {
-      logout()
-      localStorage.removeItem("user")
+      logout();
+      localStorage.removeItem("user");
     }
-  }
+  };
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -54,18 +50,18 @@ export default function Navbar(props) {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    setHamburger({ ...hamburger, [anchor]: open });
   };
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{ width: 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+        {["Learn", "Contribute", "Discover", "Login"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -75,26 +71,24 @@ export default function Navbar(props) {
         ))}
       </List>
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
     </Box>
   );
 
   return (
     <>
-      <div style={{ backgroundColor: "grey", padding: "0 7.5rem" }}>
-        <Toolbar style={{ padding: "1.1rem 0" }}>
-          <Link href="/">
-            <img src="abcd" className={classes.navLogo} alt="nav logo" />
-          </Link>
+      <div className={classes.navbar}>
+        <Toolbar
+          style={{
+            padding: "1.1rem 0",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <div className={classes.navLogo}>
+            <Link href="/">
+              <Image src={NavLogo} alt="Picture of the author" />
+            </Link>
+          </div>
           {!isMobile ? (
             <div className={classes.allNavItems}>
               {/* ---------------Desktop View Nav items-------------------------- */}
@@ -116,7 +110,7 @@ export default function Navbar(props) {
                 </Typography>
               </Link>
 
-              {!isAuthenticated ?
+              {!isAuthenticated ? (
                 <Link href="/login" style={{ textDecoration: "none" }}>
                   <Button
                     variant="description"
@@ -125,7 +119,7 @@ export default function Navbar(props) {
                     Login
                   </Button>
                 </Link>
-                :
+              ) : (
                 <Button
                   variant="description"
                   className={classes.navItems_Login}
@@ -133,26 +127,24 @@ export default function Navbar(props) {
                 >
                   Logout
                 </Button>
-              }
+              )}
             </div>
           ) : (
             <>
               <div>
-                {["left", "right", "top", "bottom"].map((anchor) => (
-                  <>
-                    <Button onClick={toggleDrawer(anchor, true)}>
-                      {anchor}
-                    </Button>
-                    <SwipeableDrawer
-                      anchor={anchor}
-                      open={state[anchor]}
-                      onClose={toggleDrawer(anchor, false)}
-                      onOpen={toggleDrawer(anchor, true)}
-                    >
-                      {list(anchor)}
-                    </SwipeableDrawer>
-                  </>
-                ))}
+                <>
+                  <Button onClick={toggleDrawer("right", true)}>
+                    <MenuIcon color="alternate" className={classes.hamIcon} />
+                  </Button>
+                  <SwipeableDrawer
+                    anchor={"right"}
+                    open={hamburger["right"]}
+                    onClose={toggleDrawer("right", false)}
+                    onOpen={toggleDrawer("right", true)}
+                  >
+                    {list("right")}
+                  </SwipeableDrawer>
+                </>
               </div>
               {/* ---------------------------------FOR MOBILE VIEW----------------------------------- */}
             </>
