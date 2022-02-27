@@ -2,8 +2,6 @@ import InnovatorDashboardComp from "components/Dashboard/Innovator.dashboard";
 import Layout from "layout/Layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-// import { useEffect } from "react";
-// import { useMoralis } from "react-moralis"
 
 const InnovatorDashboard = () => {
     const router = useRouter()

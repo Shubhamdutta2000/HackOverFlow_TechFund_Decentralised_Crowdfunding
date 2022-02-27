@@ -1,6 +1,5 @@
 import IdeaForm from "components/CreateIdea/IdeaForm"
 import IdeaHeader from "components/CreateIdea/IdeaHeader"
-import withAuth from "components/hoc/withAuth";
 import Layout from "layout/Layout";
 import { useRouter } from "next/router";
 
