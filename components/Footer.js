@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import clsx from "clsx";
 
 import { Grid, Container, Typography, useMediaQuery } from "@mui/material";
 
@@ -25,13 +26,6 @@ export default function Footer() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* <div className={classes.footerBg}>
-        <Image
-          src={!isMobile ? FooterBgDesktop : FooterBgmobile}
-          alt="FooterBg"
-        />
-      </div> */}
-
       <Grid container className={classes.footerLinksContainer}>
         {/* Navigate Part */}
         <ul className={classes.footerLinks_ul}>
@@ -78,7 +72,7 @@ export default function Footer() {
         </ul>
 
         {/* Legal Part */}
-        <ul className={classes.footerLinks_ul}>
+        <ul className={clsx(classes.footerLinks_ul, classes.footerLinks_legal)}>
           <Typography variant="heading" className={classes.footer_heading}>
             Legal
           </Typography>

@@ -27,7 +27,16 @@ export const useStyles = makeStyles((theme) => ({
     width: "12vw",
     listStyleType: "none",
     [theme.breakpoints.down("md")]: {
-      width: "12rem",
+      marginTop: "3rem",
+      width: "9rem",
+      paddingLeft: "0",
+    },
+  },
+  footerLinks_legal: {
+    [theme.breakpoints.down("md")]: {
+      position: "absolute",
+      left: "4vw",
+      top: "11.5rem",
     },
   },
   footer_heading: {
@@ -46,6 +55,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       fontSize: "0.9rem",
+      left: "0",
     },
   },
   footerLogoPart: {
@@ -54,6 +64,9 @@ export const useStyles = makeStyles((theme) => ({
     left: "50%",
     transform: "translateX(-50%)",
     bottom: "2.5vw",
+    [theme.breakpoints.down("md")]: {
+      bottom: "7.5vw",
+    },
   },
   footer__horizontalLine: {
     border: "none",
@@ -65,5 +78,8 @@ export const useStyles = makeStyles((theme) => ({
     color: "#B4B4B4",
     top: "1rem",
     left: "2.1rem",
+    [theme.breakpoints.down("md")]: {
+      left: "0rem",
+    },
   },
 }));
