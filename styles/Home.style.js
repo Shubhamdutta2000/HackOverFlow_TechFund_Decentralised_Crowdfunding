@@ -1,5 +1,6 @@
 import { makeStyles } from "@mui/styles";
 import HeroBg from "../public/assets/desktop/HeroBlackBg.png";
+import InvestBgImg from "../public/assets/desktop/InvestBgImg.png";
 
 export const useStyles = makeStyles((theme) => ({
   fullHero: {
@@ -79,15 +80,15 @@ export const useStyles = makeStyles((theme) => ({
   section01Img: {
     position: "relative",
     width: "57%",
-    marginLeft: "2rem",
+    marginLeft: "2vw",
   },
   sectionContentDiv: {
     position: "relative",
-    left: "3.5rem",
+    left: "3.5vw",
     width: "80%",
   },
   sectionNumber: {
-    marginBottom: "1.65rem",
+    marginBottom: "1.65vw",
     fontSize: "1.4rem",
     fontWeight: "700",
     fontFamily: "'Helvetica', sans-serif",
@@ -95,7 +96,7 @@ export const useStyles = makeStyles((theme) => ({
   sectionHeading: {
     position: "relative",
     display: "block",
-    fontSize: "3.6rem",
+    fontSize: "3.6vw",
     fontWeight: "500",
     lineHeight: "104%",
   },
@@ -103,7 +104,7 @@ export const useStyles = makeStyles((theme) => ({
     position: "relative",
     top: "1.8rem",
     display: "block",
-    fontSize: "1.325rem",
+    fontSize: "1.325vw",
     fontWeight: "500",
     width: "81%",
     lineHeight: "122.5%",
@@ -120,19 +121,19 @@ export const useStyles = makeStyles((theme) => ({
   section02Img: {
     position: "relative",
     width: "64%",
-    marginRight: "2rem",
+    marginRight: "2vw",
   },
   section02ContentDiv: {
     position: "relative",
-    left: "11rem",
-    top: "3.5rem",
+    left: "11vw",
+    top: "3.5vw",
     width: "80%",
   },
   section02Description: {
     position: "relative",
     top: "1.8rem",
     display: "block",
-    fontSize: "1.325rem",
+    fontSize: "1.325vw",
     fontWeight: "500",
     width: "84%",
     lineHeight: "122.5%",
@@ -169,13 +170,15 @@ export const useStyles = makeStyles((theme) => ({
   // Invest Section
   investSection: {
     position: "relative",
-    // height: "100vh",
+    marginTop: "2.5vw",
+    paddingBottom: "0",
+    height: "120vh",
   },
-  investBgImg: {
+  investSectionHeading: {
     position: "relative",
-    zIndex: "-1",
-    width: "100%",
-    objectFit: "cover",
+    top: "5.4vw",
+    color: "#fff",
+    fontSize: "3.72vw",
   },
 
   //Our Vision
@@ -192,35 +195,35 @@ export const useStyles = makeStyles((theme) => ({
   // Newsletter
   newsletterContentDiv: {
     position: "relative",
-    left: "11.6rem",
+    left: "11.6vw",
     width: "72%",
   },
   newsletterHeading: {
     position: "relative",
     display: "block",
-    fontSize: "3.35rem",
+    fontSize: "3.35vw",
     fontWeight: "500",
     lineHeight: "107.5%",
     color: theme.palette.primary.main,
   },
   newsletterDescription: {
     position: "relative",
-    top: "1.8rem",
+    top: "1.8vw",
     display: "block",
-    fontSize: "1.325rem",
+    fontSize: "1.325vw",
     fontWeight: "500",
     width: "78%",
     lineHeight: "122.5%",
   },
   newsletterTextField: {
     position: "relative",
-    top: "2rem",
-    width: "20rem",
+    top: "2vw",
+    width: "20vw",
   },
   subscribeBtn: {
     position: "relative",
     display: "block",
-    marginTop: "4rem",
+    marginTop: "4vw",
     color: "#fff",
     textTransform: "none",
     fontWeight: "400",

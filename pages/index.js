@@ -2,7 +2,10 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
+
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 import {
   Grid,
@@ -31,7 +34,21 @@ import { useStyles } from "../styles/Home.style.js";
 export default function Home() {
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width:768px)");
-  const router = useRouter()
+  const router = useRouter();
+
+  const responsive = {
+    428: { items: 1 },
+    768: { items: 2 },
+    1024: { items: 4 },
+  };
+
+  const items = [
+    <DiscoverCard />,
+    <DiscoverCard />,
+    <DiscoverCard />,
+    <DiscoverCard />,
+    <DiscoverCard />,
+  ];
 
   return (
     <div className={styles.container}>
@@ -147,12 +164,46 @@ export default function Home() {
         </Grid>
 
         {/* Invest Section */}
-        <div className={classes.investSection}>
-          <div className={classes.investBgImg}>
-            <Image src={InvestBgImg} alt="InvestBgImg" />
+        <div>
+          <div
+            className={classes.investSection}
+            style={{
+              backgroundImage: "url(" + "assets/desktop/InvestBgImg.png" + ")",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                top: "0",
+                left: "11.8vw",
+                width: "88%",
+              }}
+            >
+              <Typography
+                variant="heading"
+                className={classes.investSectionHeading}
+              >
+                Invest in minds. Invest for the future.
+              </Typography>
+              <div
+                style={{
+                  position: "relative",
+                  top: "8.3vw",
+                  marginBottom: "3rem",
+                }}
+              >
+                <AliceCarousel
+                  mouseTracking
+                  items={items}
+                  responsive={responsive}
+                  // controlsStrategy="alternate"
+                />
+              </div>
+            </div>
           </div>
-
-          <DiscoverCard />
         </div>
 
         {/* Our Vision */}
