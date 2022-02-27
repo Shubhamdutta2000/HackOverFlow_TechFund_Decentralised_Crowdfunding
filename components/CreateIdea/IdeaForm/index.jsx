@@ -99,7 +99,7 @@ const IdeaForm = () => {
                 fullWidth
                 variant='contained'
                 color='primary'
-                className={classes.submit}
+                className={classes.btn}
                 onClick={() => enableWeb3()}
                 disabled={isWeb3Enabled}
               >
@@ -110,7 +110,7 @@ const IdeaForm = () => {
                 fullWidth
                 variant='contained'
                 color='primary'
-                className={classes.submit}
+                className={classes.btn}
                 type='submit'
                 disabled={isSaving}
               >

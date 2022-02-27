@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   btn: {
-    width: '16rem',
+    width: '24rem',
     padding: '1rem',
     borderRadius: '53px',
     color: 'white',
