@@ -27,8 +27,7 @@ const CampaignCarousal = ({ color, bgColor, heading }) => {
         <div
             style={{
                 position: 'relative',
-                backgroundColor: bgColor, 
-                background: (heading === "Newest Campaigns") && 'url("assets/desktop/ListAllProj_NewestCampaignBg.png")',
+                background: (heading === "Newest Campaigns") ? 'url("assets/desktop/ListAllProj_NewestCampaignBg.png")' : "#141414",
                 color: color, 
                 top: (heading === "Newest Campaigns") ? "6.5vw" : "0",
                 zIndex: (heading === "Newest Campaigns") ? "-1" : "0"
