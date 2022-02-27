@@ -21,6 +21,7 @@ const IdeaBody = ({ data }) => {
         setOpen={setOpen}
         handleOpen={handleOpen}
         handleClose={handleClose}
+        data={data}
       />
       {/* top section start*/}
       <Typography variant='h2'>{data && data.title}</Typography>
