@@ -14,7 +14,7 @@ import { useRouter } from 'next/router'
 
 const IdeaForm = () => {
   const classes = useStyles()
-  const isMobile = useMediaQuery('(max-width:600px)')
+  const isMobile = useMediaQuery('(max-width:1200px)')
   const router = useRouter()
 
 
@@ -26,10 +26,11 @@ const IdeaForm = () => {
     idea: '',
     amountRaised: 0,
     totalContributions: 0,
-    createdBy: ''
+    createdBy: '',
   })
 
-  const { authenticate, isAuthenticated, isAuthenticating, logout, user } = useMoralis()
+  const { authenticate, isAuthenticated, isAuthenticating, logout, user } =
+    useMoralis()
   const { isSaving, error, save } = useNewMoralisObject('Idea')
 
   const handleChange = (e) => {
@@ -37,7 +38,7 @@ const IdeaForm = () => {
     setFormData((f) => ({
       ...f,
       [e.target.name]: e.target.value,
-      createdBy: user && user.id
+      createdBy: user && user.id,
     }))
   }
 
@@ -45,6 +46,7 @@ const IdeaForm = () => {
     e.preventDefault()
     save(formData)
     console.log(error ? error : formData)
+    router.replace('/login')
   }
 
   return (
@@ -106,14 +108,16 @@ const IdeaForm = () => {
             </Button>
           </form>
         </Grid>
-        <Grid item xs={false} sm={false} md={6}>
-          <Image
-            src='/assets/desktop/LoginImg.png'
-            alt='vector'
-            width={800}
-            height={800}
-          />
-        </Grid>
+        {!isMobile && (
+          <Grid item xs={false} sm={false} md={6}>
+            <Image
+              src='/assets/desktop/LoginImg.png'
+              alt='vector'
+              width={800}
+              height={800}
+            />
+          </Grid>
+        )}
       </Grid>
     </div>
   )

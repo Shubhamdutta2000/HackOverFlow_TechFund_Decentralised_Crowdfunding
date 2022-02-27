@@ -100,7 +100,7 @@ export default function Footer() {
         </ul>
       </Grid>
       {/* Logo */}
-      <Container maxWidth="xl" className={classes.footerLogoPart}>
+      <Container maxwidth="xl" className={classes.footerLogoPart}>
         <div align="right" className={classes.footerLogo}>
           <Link href="/">
             <Image src={NavLogo} alt="Logo" />
