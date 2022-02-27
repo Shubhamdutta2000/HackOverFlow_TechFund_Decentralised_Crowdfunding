@@ -19,8 +19,6 @@ const IdeaForm = () => {
   const isMobile = useMediaQuery('(max-width:1200px)')
   const router = useRouter()
 
-  const [res, setRes] = useState([])
-
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -32,28 +30,8 @@ const IdeaForm = () => {
     createdBy: '',
   })
 
-  const { user } = useMoralis()
+  const { user, web3, enableWeb3, isWeb3Enabled, setUserData } = useMoralis()
   const { isSaving, error, save } = useNewMoralisObject('Idea')
-
-  // const {
-  //   data,
-  //   error: queryError,
-  //   isLoading,
-  // } = useMoralisQuery('Idea', (query) =>
-  //   query.equalTo('objectId', '68yHrNXrudSHaZPYAOdGRPwX')
-  // )
-
-  // const {
-  //   data: ideaData,
-  //   error: queryError,
-  //   isLoading,
-  // } = useMoralisQuery('Idea')
-
-  // useEffect(() => {
-  //   var json = JSON.stringify(ideaData, null, 2)
-  //   var obj = JSON.parse(json)
-  //   console.log(obj)
-  // }, [ideaData])
 
   const handleChange = (e) => {
     e.preventDefault()
@@ -64,10 +42,14 @@ const IdeaForm = () => {
     }))
   }
 
+  // update innovator user data with their metamask address and create idea
   const submitHandler = (e) => {
+    setUserData({
+      metaMaskAddress: window.ethereum._state.accounts[0]
+    })
     e.preventDefault()
     createIdea({ formData, save, error })
-    // console.log(error ? error : formData)
+    router.push("/dashboard/innovator")
   }
 
   return (
@@ -111,16 +93,33 @@ const IdeaForm = () => {
               value={formData.idea}
               onChange={(e) => handleChange(e)}
             />
-            <Button
-              fullWidth
-              variant='contained'
-              color='primary'
-              className={classes.submit}
-              type='submit'
-              disabled={isSaving}
-            >
-              Submit Idea
-            </Button>
+
+            {!isWeb3Enabled ?
+              <Button
+                fullWidth
+                variant='contained'
+                color='primary'
+                className={classes.submit}
+                onClick={() => enableWeb3()}
+                disabled={isWeb3Enabled}
+              >
+                Connect with Metamask
+              </Button>
+              :
+              <Button
+                fullWidth
+                variant='contained'
+                color='primary'
+                className={classes.submit}
+                type='submit'
+                disabled={isSaving}
+              >
+                Submit Idea
+              </Button>
+            }
+
+
+
           </form>
         </Grid>
         {!isMobile && (
