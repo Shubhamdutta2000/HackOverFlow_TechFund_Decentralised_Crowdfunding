@@ -9,22 +9,64 @@ import {
   TextField,
 } from '@mui/material'
 import { useStyles } from '../../styles/PaymentModal/paymentmodal.style'
-import { useMoralis, useWeb3Transfer } from 'react-moralis'
+import {
+  useMoralis,
+  useWeb3Transfer,
+  useMoralisQuery,
+  useNewMoralisObject,
+} from 'react-moralis'
 import { Moralis } from 'moralis'
 
-const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
+const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
   const classes = useStyles()
-  const [amount, setAmount] = useState(0.0001);
+  const [amount, setAmount] = useState(0.0001)
+  const [metamaskAddress, setMetamaskAddress] = useState('')
 
-  const { web3, enableWeb3, isWeb3Enabled, isWeb3EnableLoading, web3EnableError } = useMoralis()
+  const {
+    web3,
+    enableWeb3,
+    isWeb3Enabled,
+    isWeb3EnableLoading,
+    web3EnableError,
+    user,
+  } = useMoralis()
+
+  const {
+    data: ideaData,
+    error: queryError,
+    isLoading,
+  } = useMoralisQuery(
+    'User',
+    (query) => query.equalTo('objectId', data && data.createdBy),
+    [data],
+    {
+      live: true,
+    }
+  )
+
+  const {
+    isSaving,
+    error: contribError,
+    save,
+  } = useNewMoralisObject('Contribution')
+
+  var ideaId = data?.objectId
+  var contributorId = user?.get('objectId')
 
   useEffect(() => {
-    console.log(window.ethereum._state.accounts);
-  }, [web3])
+    console.log(window.ethereum._state.accounts)
+    var json = JSON.stringify(ideaData, null, 2)
+    var obj = JSON.parse(json)
+    // setMetamaskAddress(obj[0] && obj[0].metaMaskAddress)
+    console.log(obj)
+    // if (!error) {
+    //   save({ amount, ideaId, contributorId })
+    // }
+  }, [isWeb3Enabled, ideaData, metamaskAddress])
 
   const { fetch, error, isFetching } = useWeb3Transfer({
     amount: Moralis.Units.ETH(amount),
-    receiver: '0x3aFdD22a2645222DF56357B0e34f80F91d3008F9',
+    receiver: metamaskAddress,
     type: 'native',
   })
 
@@ -51,11 +93,15 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
               to the world!
             </Typography>
             <div className={classes.fieldWrapper}>
-              <TextField onChange={(e) => setAmount(e.target.value)} placeholder='Enter Amount' className={classes.field} />
+              <TextField
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder='Enter Amount'
+                className={classes.field}
+              />
               <div className={classes.eth}>Eth</div>
             </div>
             <div className={classes.btnWrapper}>
-              {!isWeb3Enabled ?
+              {!isWeb3Enabled ? (
                 <Button
                   variant='contained'
                   color='button'
@@ -65,7 +111,7 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
                 >
                   Connect with Metamask
                 </Button>
-                :
+              ) : (
                 <Button
                   variant='contained'
                   color='button'
@@ -75,12 +121,12 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
                 >
                   Contribute
                 </Button>
-              }
+              )}
             </div>
           </Box>
         </Fade>
       </Modal>
-    </div >
+    </div>
   )
 }
 
