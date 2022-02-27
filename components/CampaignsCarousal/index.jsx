@@ -16,11 +16,11 @@ const CampaignCarousal = ({ color, bgColor, heading }) => {
     };
 
     const campaigns = [
-        <DiscoverCard />,
-        <DiscoverCard />,
-        <DiscoverCard />,
-        <DiscoverCard />,
-        <DiscoverCard />,
+        <DiscoverCard key={1} />,
+        <DiscoverCard key={2} />,
+        <DiscoverCard key={3} />,
+        <DiscoverCard key={4} />,
+        <DiscoverCard key={5} />,
     ];
 
     return (
@@ -28,7 +28,7 @@ const CampaignCarousal = ({ color, bgColor, heading }) => {
             style={{
                 position: 'relative',
                 background: (heading === "Newest Campaigns") ? 'url("assets/desktop/ListAllProj_NewestCampaignBg.png")' : "#141414",
-                color: color, 
+                color: color,
                 top: (heading === "Newest Campaigns") ? "6.5vw" : "0",
                 zIndex: (heading === "Newest Campaigns") ? "-1" : "0"
             }}
@@ -39,7 +39,7 @@ const CampaignCarousal = ({ color, bgColor, heading }) => {
                     position: "relative",
                     top: (heading === "Newest Campaigns") ? "-8vw" : "0",
                     marginBottom: "2rem",
-                    color: heading==="Newest Campaigns" ? "#333CFF" : "#FFFCDC"
+                    color: heading === "Newest Campaigns" ? "#333CFF" : "#FFFCDC"
                 }}
                 component={"h1"}
                 variant="heading"
@@ -56,7 +56,7 @@ const CampaignCarousal = ({ color, bgColor, heading }) => {
                     mouseTracking
                     items={campaigns}
                     responsive={responsive}
-                    // controlsStrategy="alternate"
+                // controlsStrategy="alternate"
                 />
             </div>
         </div>

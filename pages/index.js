@@ -43,12 +43,13 @@ export default function Home() {
   };
 
   const items = [
-    <DiscoverCard />,
-    <DiscoverCard />,
-    <DiscoverCard />,
-    <DiscoverCard />,
-    <DiscoverCard />,
+    <DiscoverCard key={1} />,
+    <DiscoverCard key={2} />,
+    <DiscoverCard key={3} />,
+    <DiscoverCard key={4} />,
+    <DiscoverCard key={5} />,
   ];
+
 
   return (
     <div className={styles.container}>
@@ -193,7 +194,7 @@ export default function Home() {
                   mouseTracking
                   items={items}
                   responsive={responsive}
-                  // controlsStrategy="alternate"
+                // controlsStrategy="alternate"
                 />
               </div>
             </div>
