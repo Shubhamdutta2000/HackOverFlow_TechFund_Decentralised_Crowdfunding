@@ -20,10 +20,12 @@ import Metamask from "../../public/assets/desktop/MetamaskImg.png";
 
 import { useStyles } from "../../styles/contributorDashboard.style";
 import Link from "next/link";
+import { useMoralis } from "react-moralis";
 
 const InnovatorDashboardComp = () => {
     const classes = useStyles();
     const [value, setValue] = useState("1");
+    const { user } = useMoralis();
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -70,21 +72,23 @@ const InnovatorDashboardComp = () => {
                                 variant="h4"
                                 component="div"
                             >
-                                John Doe
+                                {user && user.get("username")}
                             </Typography>
                             <Typography
                                 align='center'
                                 gutterBottom variant="description" component="div">
-                                johndoe@example.com
+                                {user && user.get("email")}
+
                             </Typography>
                             <Button
                                 sx={{
-                                    padding: "0.5rem 1rem",
+                                    padding: "0.5rem 2rem",
+                                    textTransform: "none",
                                     maxWidth: "160px",
                                     color: "rgba(0, 0, 0, 1)",
                                     background: "#D3FFD0",
                                     borderRadius: "54px",
-                                    fontSize: "15px",
+                                    fontSize: "16px",
                                     marginTop: "1rem",
                                     marginLeft: "50%",
                                     transform: "translateX(-50%)",
@@ -92,7 +96,8 @@ const InnovatorDashboardComp = () => {
                                 }}
                                 className={classes.roleContent}
                             >
-                                Contributor
+                                {user && user.get("userType")}
+
                             </Button>
                             <Typography
                                 sx={{
