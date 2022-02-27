@@ -1,9 +1,10 @@
+import Layout from 'layout/Layout'
 import IdeaBody from '../../components/IdeaBody'
 const IndividualIdeaPage = () => {
   return (
-    <div>
+    <Layout>
       <IdeaBody />
-    </div>
+    </Layout>
   )
 }
 
