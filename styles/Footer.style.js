@@ -2,17 +2,19 @@ import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles((theme) => ({
   footer: {
+    position: "relative",
     width: "100%",
-    height: "68vh",
+    height: "69vh",
   },
   footerBg: {
+    width: "100%",
+    height: "68vh",
     position: "absolute",
     zIndex: "-1",
-    width: "100%",
-    // height: "20vh",
+    objectFit: "cover",
   },
   footerLinksContainer: {
-    position: "relative",
+    position: "absolute",
     width: "54%",
     display: "flex",
     justifyContent: "space-around",
@@ -27,7 +29,16 @@ export const useStyles = makeStyles((theme) => ({
     width: "12vw",
     listStyleType: "none",
     [theme.breakpoints.down("md")]: {
-      width: "12rem",
+      marginTop: "3rem",
+      width: "9rem",
+      paddingLeft: "0",
+    },
+  },
+  footerLinks_legal: {
+    [theme.breakpoints.down("md")]: {
+      position: "absolute",
+      left: "4vw",
+      top: "11.5rem",
     },
   },
   footer_heading: {
@@ -46,14 +57,18 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("md")]: {
       fontSize: "0.9rem",
+      left: "0",
     },
   },
   footerLogoPart: {
     position: "absolute",
-    width: "84.5%",
+    width: "88%",
     left: "50%",
     transform: "translateX(-50%)",
     bottom: "2.5vw",
+    [theme.breakpoints.down("md")]: {
+      bottom: "7.5vw",
+    },
   },
   footer__horizontalLine: {
     border: "none",
@@ -65,5 +80,8 @@ export const useStyles = makeStyles((theme) => ({
     color: "#B4B4B4",
     top: "1rem",
     left: "2.1rem",
+    [theme.breakpoints.down("md")]: {
+      left: "0rem",
+    },
   },
 }));
