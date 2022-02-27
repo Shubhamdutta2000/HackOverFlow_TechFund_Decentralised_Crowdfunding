@@ -14,12 +14,14 @@ import {
 //Components
 import Navbar from "../components/Navbar.js";
 import Footer from "../components/Footer.js";
+import DiscoverCard from "../components/DiscoverCard.js";
 
 //Assets
 import HeroBgDesktop from "../public/assets/desktop/HeroBlackBg3.png";
 import HeroBgMobile from "../public/assets/mobile/MobileHeroBlackBg.png";
 import Section01Img from "../public/assets/desktop/Section01Img.png";
 import Section02Img from "../public/assets/desktop/Section02Img.png";
+import InvestBgImg from "../public/assets/desktop/InvestBgImg.png";
 import OurVisionImg from "../public/assets/desktop/OurVisionImg.png";
 
 import styles from "../styles/Home.module.css";
@@ -49,6 +51,7 @@ export default function Home() {
             <Image
               src={!isMobile ? HeroBgDesktop : HeroBgMobile}
               alt="HeroBg"
+              quality={100}
             />
           </div>
 
@@ -88,7 +91,7 @@ export default function Home() {
         <Grid container style={{ marginTop: "-3vw", paddingBottom: "2vw" }}>
           <Grid md={6} align="center">
             <div className={classes.section01Img}>
-              <Image src={Section01Img} alt="Section01Img" />
+              <Image src={Section01Img} alt="Section01Img" quality={100} />
             </div>
           </Grid>
           <Grid md={6}>
@@ -136,10 +139,19 @@ export default function Home() {
           </Grid>
           <Grid md={6} align="center">
             <div className={classes.section02Img}>
-              <Image src={Section02Img} alt="Section02Img" />
+              <Image src={Section02Img} alt="Section02Img" quality={100} />
             </div>
           </Grid>
         </Grid>
+
+        {/* Invest Section */}
+        <div className={classes.investSection}>
+          <div className={classes.investBgImg}>
+            <Image src={InvestBgImg} alt="InvestBgImg" />
+          </div>
+
+          <DiscoverCard />
+        </div>
 
         {/* Our Vision */}
         <Grid container style={{ paddingBottom: "2vw" }}>
