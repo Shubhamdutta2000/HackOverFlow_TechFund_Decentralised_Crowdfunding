@@ -40,6 +40,12 @@ export default function Register() {
   }, [isAuthenticated, user, router])
 
 
+  // Back to previous page
+  const backToPrevPage = () => {
+    router.back()
+  }
+
+
   return (
     <>
       <Grid container spacing={'14'} component="main" className={classes.root}>
@@ -64,7 +70,7 @@ export default function Register() {
 
             </Grid>
             <Grid item sm={6} >
-              <Typography component="h1" className={classes.backBtn}>
+              <Typography onClick={backToPrevPage} component="h1" className={classes.backBtn}>
                 Back
               </Typography>
 
