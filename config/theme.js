@@ -39,7 +39,15 @@ const theme = createTheme({
       lineHeight: '107%',
       color: '#252525',
     },
+    ideaStats: {
+      fontFamily: 'Euclid Circular A',
+      fontStyle: 'normal',
+      fontWeight: '500',
+      fontSize: '27px',
+      lineHeight: '107%',
+      color: 'white',
+    },
   },
-});
+})
 
-export default theme;
+export default theme
