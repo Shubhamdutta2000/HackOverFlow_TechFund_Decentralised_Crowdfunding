@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     '& > *': {
-      marginBottom: '2rem',
+      margin: '2rem 0 2rem 0',
     },
   },
   textarea: {
@@ -24,12 +24,14 @@ export const useStyles = makeStyles((theme) => ({
   display: {
     display: 'none',
   },
-  submit: {
-    fontFamily: "'Euclid Circular A', sans-serif",
-    borderRadius: "100rem",
-    fontSize: "1.16vw",
-    padding: "0.50vw 2.1vw",
-    margin: theme.spacing(3, 0, 2),
-    color: '#fff',
+  btn: {
+    width: '16rem',
+    padding: '1rem',
+    borderRadius: '53px',
+    color: 'white',
+    fontSize: '16px',
+    textTransform: 'none',
+    fontFamily: 'Euclid Circular A',
+    fontSize: '20px',
   },
 }))

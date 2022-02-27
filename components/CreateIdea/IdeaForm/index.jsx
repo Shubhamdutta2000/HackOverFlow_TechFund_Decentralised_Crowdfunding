@@ -9,14 +9,17 @@ import {
   Button,
 } from '@mui/material'
 import { useStyles } from '../../../styles/CreateIdea/ideaForm/ideaForm.style'
-import { useMoralis, useNewMoralisObject } from 'react-moralis'
+import { useMoralis, useNewMoralisObject, useMoralisQuery } from 'react-moralis'
 import { useRouter } from 'next/router'
+import { createIdea } from '../../../utils/createIdea'
+import { getIdeas } from '../../../utils/getIdeas'
 
 const IdeaForm = () => {
   const classes = useStyles()
   const isMobile = useMediaQuery('(max-width:1200px)')
   const router = useRouter()
 
+  const [res, setRes] = useState([])
 
   const [formData, setFormData] = useState({
     title: '',
@@ -29,9 +32,28 @@ const IdeaForm = () => {
     createdBy: '',
   })
 
-  const { authenticate, isAuthenticated, isAuthenticating, logout, user } =
-    useMoralis()
+  const { user } = useMoralis()
   const { isSaving, error, save } = useNewMoralisObject('Idea')
+
+  // const {
+  //   data,
+  //   error: queryError,
+  //   isLoading,
+  // } = useMoralisQuery('Idea', (query) =>
+  //   query.equalTo('objectId', '68yHrNXrudSHaZPYAOdGRPwX')
+  // )
+
+  // const {
+  //   data: ideaData,
+  //   error: queryError,
+  //   isLoading,
+  // } = useMoralisQuery('Idea')
+
+  // useEffect(() => {
+  //   var json = JSON.stringify(ideaData, null, 2)
+  //   var obj = JSON.parse(json)
+  //   console.log(obj)
+  // }, [ideaData])
 
   const handleChange = (e) => {
     e.preventDefault()
@@ -44,9 +66,8 @@ const IdeaForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    save(formData)
-    console.log(error ? error : formData)
-    router.replace('/login')
+    createIdea({ formData, save, error })
+    // console.log(error ? error : formData)
   }
 
   return (
@@ -95,14 +116,8 @@ const IdeaForm = () => {
               variant='contained'
               color='primary'
               className={classes.submit}
-            // sx={{
-            //   fontFamily: "'Euclid Circular A', sans-serif",
-            //   borderRadius: "100rem",
-            //   fontSize: "1.16vw",
-            //   padding: "0.50vw 2.1vw",
-            //   margin: "3",
-            //   color: '#fff',
-            // }}
+              type='submit'
+              disabled={isSaving}
             >
               Submit Idea
             </Button>
