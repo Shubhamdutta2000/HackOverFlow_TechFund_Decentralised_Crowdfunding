@@ -24,14 +24,12 @@ export const useStyles = makeStyles((theme) => ({
   display: {
     display: 'none',
   },
-  btn: {
-    width: '16rem',
-    padding: '1rem',
-    borderRadius: '53px',
-    color: 'white',
-    fontSize: '16px',
-    textTransform: 'none',
-    fontFamily: 'Euclid Circular A',
-    fontSize: '20px',
+  submit: {
+    fontFamily: "'Euclid Circular A', sans-serif",
+    borderRadius: "100rem",
+    fontSize: "1.16vw",
+    padding: "0.50vw 2.1vw",
+    margin: theme.spacing(3, 0, 2),
+    color: '#fff',
   },
 }))

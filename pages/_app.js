@@ -5,13 +5,14 @@ import ThemeProvider from "@/config/StyledMaterialThemeProvider";
 import theme from "@/config/theme";
 
 function MyApp({ pageProps, Component }) {
+
   return (
     <MoralisProvider
       appId={process.env.NEXT_PUBLIC_SHUBHAM_APP_ID}
       serverUrl={process.env.NEXT_PUBLIC_SHUBHAM_SERVER_URL}
     >
       <ThemeProvider theme={theme}>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Component {...pageProps} />
       </ThemeProvider>
     </MoralisProvider>

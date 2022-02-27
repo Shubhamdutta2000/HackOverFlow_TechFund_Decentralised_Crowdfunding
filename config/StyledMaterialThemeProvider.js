@@ -4,7 +4,7 @@ import { StylesProvider } from "@mui/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
 const MyThemeProvider = ({ theme, children }) => (
-  <StylesProvider injectFirst>
+  <StylesProvider>
     <CssBaseline />
     <StyledThemeProvider theme={theme}>
       <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>

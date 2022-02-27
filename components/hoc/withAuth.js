@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useMoralis } from "react-moralis"
 
 const withAuth = (WrappedComponent) => {
     return (props) => {
@@ -8,7 +7,9 @@ const withAuth = (WrappedComponent) => {
         if (typeof window !== "undefined") {
             const router = useRouter()
 
-            const isAuthenticated = JSON.parse(localStorage.getItem("user")).isAuthenticated
+            const isAuthenticated = localStorage.getItem("user")
+                ? JSON.parse(localStorage.getItem("user")).isAuthenticated
+                : false
             if (!isAuthenticated) {
                 router.push("/login")
             }
