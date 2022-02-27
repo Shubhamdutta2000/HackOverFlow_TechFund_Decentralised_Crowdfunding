@@ -2,7 +2,6 @@ import InnovatorDashboardComp from "components/Dashboard/Innovator.dashboard";
 import withAuth from "components/hoc/withAuth";
 import Layout from "layout/Layout";
 import { useRouter } from "next/router";
-import Dashboard from "./innovatorDashboard";
 // import { useEffect } from "react";
 // import { useMoralis } from "react-moralis"
 
