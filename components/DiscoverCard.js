@@ -24,6 +24,7 @@ export default function DiscoverCard(props) {
         <div className={classes.discoverCardImg}>
           <Image
             height="1050"
+            className={classes.discoverCardImgCover}
             src={DiscoverCardIdeaCoverImg}
             alt="HeroBg"
             objectFit="cover"
@@ -70,9 +71,14 @@ export default function DiscoverCard(props) {
 
         {/* Blue Part */}
         <CardContent
-          style={{ margin: "0", padding: "0", position: "relative" }}
+          style={{
+            margin: "0",
+            padding: "0",
+            position: "relative",
+            // top: "0.28rem",
+          }}
         >
-          <div style={{ position: "relative" }}>
+          <div style={{ position: "relative", margin: "0", padding: "0" }}>
             <Image src={CardBluePartBg} alt="HeroBg" />
           </div>
           <div

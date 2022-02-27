@@ -3,13 +3,18 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles((theme) => ({
   discoverCard: {
     position: "relative",
-    width: "16.8rem",
+    width: "17.7rem",
     padding: "0",
+    borderRadius: "0.6rem",
+    height: "29.8rem",
     filter:
       "drop-shadow(0px 3.55774px 3.55774px rgba(0, 0, 0, 0.25)) drop-shadow(-3.55774px 3.55774px 24.9042px rgba(0, 0, 0, 0.13))",
   },
   discoverCardImg: {
     margin: "1rem",
+  },
+  discoverCardImgCover: {
+    borderRadius: "0.4rem",
   },
   discoverCard_badge: {
     marginTop: "0",
