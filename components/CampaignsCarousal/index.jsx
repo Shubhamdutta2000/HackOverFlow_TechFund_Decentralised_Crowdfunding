@@ -3,7 +3,7 @@ import { useStyles } from "styles/IndividualIdea/RelatedCampaigns/RelatedCampaig
 import Carousel from 'react-elastic-carousel'
 import DiscoverCard from "components/DiscoverCard";
 
-const CampaignCarousal = ({ heading }) => {
+const CampaignCarousal = ({ color, bgColor, heading }) => {
     const classes = useStyles();
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
@@ -14,7 +14,7 @@ const CampaignCarousal = ({ heading }) => {
     const campaigns = [1, 2, 3, 4]
 
     return (
-        <div className={classes.container}>
+        <div style={{ backgroundColor: bgColor, color: color }} className={classes.container}>
             <Typography component={'h1'} className={classes.campaignHeader} variant='heading' >
                 {heading}
             </Typography>

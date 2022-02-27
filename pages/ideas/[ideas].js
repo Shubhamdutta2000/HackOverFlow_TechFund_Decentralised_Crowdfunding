@@ -8,7 +8,7 @@ const IndividualIdeaPage = () => {
   return (
     <Layout>
       <IdeaBody />
-      <CampaignCarousal heading="Related Campaigns" />
+      <CampaignCarousal color="#333CFF" bgColor="#fff" heading="Related Campaigns" />
     </Layout>
   )
 }
