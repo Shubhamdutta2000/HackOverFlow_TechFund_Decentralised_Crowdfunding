@@ -28,9 +28,11 @@ import { useMediaQuery } from "@mui/material";
 
 import { useStyles } from "../styles/Navbar.style.js";
 import { useMoralis } from "react-moralis";
+import { useRouter } from "next/router";
 
-export default function Navbar(props) {
+export default function Navbar({ path }) {
   const classes = useStyles();
+  const router = useRouter()
   const isMobile = useMediaQuery("(max-width:600px)");
   const { logout, isAuthenticated, user } = useMoralis();
 
@@ -51,6 +53,7 @@ export default function Navbar(props) {
     if (isAuthenticated) {
       logout();
       localStorage.removeItem("user");
+      router.push("/")
     }
   };
 
@@ -136,7 +139,9 @@ export default function Navbar(props) {
 
   return (
     <>
-      <div className={classes.navbar}>
+      <div className={classes.navbar}
+        style={{ backgroundColor: path === '/' ? "#070707" : "#141414" }}
+      >
         <Toolbar
           style={{
             padding: "1.1rem 0",

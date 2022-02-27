@@ -12,7 +12,7 @@ function MyApp({ pageProps, Component }) {
       serverUrl={process.env.NEXT_PUBLIC_SHUBHAM_SERVER_URL}
     >
       <ThemeProvider theme={theme}>
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         <Component {...pageProps} />
       </ThemeProvider>
     </MoralisProvider>
