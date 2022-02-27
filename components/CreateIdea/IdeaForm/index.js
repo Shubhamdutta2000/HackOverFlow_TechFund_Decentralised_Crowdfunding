@@ -17,6 +17,7 @@ const IdeaForm = () => {
   const isMobile = useMediaQuery('(max-width:600px)')
   const router = useRouter()
 
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -91,15 +92,15 @@ const IdeaForm = () => {
               fullWidth
               variant='contained'
               color='primary'
-              // className={classes.submit}
-              sx={{
-                fontFamily: "'Euclid Circular A', sans-serif",
-                borderRadius: "100rem",
-                fontSize: "1.16vw",
-                padding: "0.50vw 2.1vw",
-                margin: "3",
-                color: '#fff',
-              }}
+              className={classes.submit}
+            // sx={{
+            //   fontFamily: "'Euclid Circular A', sans-serif",
+            //   borderRadius: "100rem",
+            //   fontSize: "1.16vw",
+            //   padding: "0.50vw 2.1vw",
+            //   margin: "3",
+            //   color: '#fff',
+            // }}
             >
               Submit Idea
             </Button>

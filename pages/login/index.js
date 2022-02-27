@@ -100,15 +100,8 @@ export default function Login() {
                 fullWidth
                 variant='contained'
                 color='primary'
-                sx={{
-                  fontFamily: "'Euclid Circular A', sans-serif",
-                  borderRadius: "100rem",
-                  fontSize: "1.16vw",
-                  padding: "0.50vw 2.1vw",
-                  margin: "3",
-                  color: '#fff',
-                  margin: "1rem 0",
-                }}
+                className={classes.submit}
+
               >
                 Login
               </Button>
