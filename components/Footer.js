@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import clsx from "clsx";
 
 import { Grid, Container, Typography, useMediaQuery } from "@mui/material";
 
@@ -13,24 +14,13 @@ export default function Footer() {
   const isMobile = useMediaQuery("(max-width:768px)");
 
   return (
-    <div
-      className={classes.footer}
-      style={{
-        position: "relative",
-        backgroundImage: !isMobile
-          ? `url("assets/desktop/FooterBg.png")`
-          : `url("assets/mobile/MobileFooterBg.png")`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {/* <div className={classes.footerBg}>
-        <Image
-          src={!isMobile ? FooterBgDesktop : FooterBgmobile}
-          alt="FooterBg"
-        />
-      </div> */}
+    <div className={classes.footer}>
+      <Image
+        src={!isMobile ? FooterBgDesktop : FooterBgmobile}
+        className={classes.footerBg}
+        quality={100}
+        layout="fill"
+      />
 
       <Grid container className={classes.footerLinksContainer}>
         {/* Navigate Part */}
@@ -78,7 +68,7 @@ export default function Footer() {
         </ul>
 
         {/* Legal Part */}
-        <ul className={classes.footerLinks_ul}>
+        <ul className={clsx(classes.footerLinks_ul, classes.footerLinks_legal)}>
           <Typography variant="heading" className={classes.footer_heading}>
             Legal
           </Typography>
