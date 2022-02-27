@@ -30,5 +30,8 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '53px',
     color: 'white',
     fontSize: '16px',
+    textTransform: 'none',
+    fontFamily: 'Euclid Circular A',
+    fontSize: '20px',
   },
 }))

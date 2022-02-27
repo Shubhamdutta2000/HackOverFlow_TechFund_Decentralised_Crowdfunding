@@ -1,7 +1,10 @@
-import React from 'react'
-
-const IndividualIdea = () => {
-  return <div>IndividualIdea</div>
+import IdeaBody from '../../components/IdeaBody'
+const IndividualIdeaPage = () => {
+  return (
+    <div>
+      <IdeaBody />
+    </div>
+  )
 }
 
-export default IndividualIdea
+export default IndividualIdeaPage
