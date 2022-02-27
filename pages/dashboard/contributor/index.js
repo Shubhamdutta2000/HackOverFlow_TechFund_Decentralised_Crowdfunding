@@ -1,7 +1,8 @@
+import ContributorDashboardComp from "components/Dashboard/Contributor.dashboard";
+import Layout from "layout/Layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
-import Dashboard from "./contributorDashboard";
 
 const ContributorDashboard = () => {
     const { login, isAuthenticated, authError, userError, user } = useMoralis()
@@ -16,7 +17,11 @@ const ContributorDashboard = () => {
     }, [isAuthenticated, user])
 
     console.log(user && user.get("userType"));
-    return <div><Dashboard></Dashboard></div>
+    return (
+        <Layout>
+            <ContributorDashboardComp />
+        </Layout>
+    )
 }
 
 export default ContributorDashboard

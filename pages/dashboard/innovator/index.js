@@ -1,3 +1,4 @@
+import InnovatorDashboardComp from "components/Dashboard/Innovator.dashboard";
 import withAuth from "components/hoc/withAuth";
 import Layout from "layout/Layout";
 import { useRouter } from "next/router";
@@ -9,7 +10,11 @@ const InnovatorDashboard = () => {
     const router = useRouter()
     // const { isAuthenticated, user } = useMoralis()
 
-    return <Dashboard></Dashboard>
+    return (
+        <Layout>
+            <InnovatorDashboardComp />
+        </Layout>
+    )
 }
 
 export default withAuth(InnovatorDashboard)
