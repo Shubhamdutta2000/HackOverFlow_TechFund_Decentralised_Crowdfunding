@@ -1,6 +1,5 @@
 import { Typography } from "@mui/material";
 import { useStyles } from "styles/RelatedCampaigns/RelatedCampaigns.style";
-// import Carousel from 'react-elastic-carousel'
 
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -26,12 +25,21 @@ const CampaignCarousal = ({ color, bgColor, heading }) => {
 
     return (
         <div
-            style={{ backgroundColor: bgColor, color: color }}
+            style={{
+                position: 'relative',
+                background: (heading === "Newest Campaigns") ? 'url("assets/desktop/ListAllProj_NewestCampaignBg.png")' : "#141414",
+                color: color, 
+                top: (heading === "Newest Campaigns") ? "6.5vw" : "0",
+                zIndex: (heading === "Newest Campaigns") ? "-1" : "0"
+            }}
             className={classes.container}
         >
             <Typography
                 style={{
+                    position: "relative",
+                    top: (heading === "Newest Campaigns") ? "-8vw" : "0",
                     marginBottom: "2rem",
+                    color: heading==="Newest Campaigns" ? "#333CFF" : "#FFFCDC"
                 }}
                 component={"h1"}
                 variant="heading"
@@ -39,12 +47,18 @@ const CampaignCarousal = ({ color, bgColor, heading }) => {
                 {heading}
             </Typography>
 
-            <AliceCarousel
-                mouseTracking
-                items={campaigns}
-                responsive={responsive}
-            // controlsStrategy="alternate"
-            />
+            <div style={{
+                position: "relative",
+                width: "95%",
+                top: (heading === "Newest Campaigns") ? "-8vw" : "0",
+            }}>
+                <AliceCarousel
+                    mouseTracking
+                    items={campaigns}
+                    responsive={responsive}
+                    // controlsStrategy="alternate"
+                />
+            </div>
         </div>
     );
 };

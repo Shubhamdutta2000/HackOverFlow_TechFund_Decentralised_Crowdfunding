@@ -1,26 +1,26 @@
-import { createTheme } from '@mui/material/styles'
-import { red } from '@mui/material/colors'
+import { createTheme } from "@mui/material/styles";
+import { red } from "@mui/material/colors";
 // Create a theme instance.
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#333CFF',
+      main: "#333CFF",
     },
     alternate: {
-      main: '#fff',
+      main: "#fff",
     },
     secondary: {
-      main: '#19857b',
+      main: "#19857b",
     },
     button: {
-      main: '#333CFF',
+      main: "#333CFF",
     },
     error: {
-      main: '#F8485E',
+      main: "#F8485E",
     },
     background: {
-      primary: '#fff',
-      secondary: '#141414',
+      primary: "#fff",
+      secondary: "#141414",
     },
   },
   typography: {
@@ -31,19 +31,19 @@ const theme = createTheme({
       fontFamily: "'Euclid Circular A','Shizuru', sans-serif",
     },
     h2: {
-      fontFamily: 'Circular Std',
-      fontStyle: 'normal',
-      fontWeight: '500',
-      fontSize: '72px',
-      lineHeight: '107%',
+      fontFamily: "Circular Std",
+      fontStyle: "normal",
+      fontWeight: "500",
+      fontSize: "72px",
+      lineHeight: "107%",
     },
     body2: {
-      fontFamily: 'Euclid Circular A',
-      fontStyle: 'normal',
-      fontWeight: '500',
-      fontSize: '27px',
-      lineHeight: '107%',
-      color: '#252525',
+      fontFamily: "Euclid Circular A",
+      fontStyle: "normal",
+      fontWeight: "500",
+      fontSize: "27px",
+      lineHeight: "107%",
+      color: "#252525",
     },
     ideaStats: {
       fontFamily: 'Euclid Circular A',
@@ -54,8 +54,8 @@ const theme = createTheme({
       color: 'white',
     },
     modalHeader: {
-      fontFamily: 'Euclid Circular A',
-      fontStyle: 'normal',
+      fontFamily: "Euclid Circular A",
+      fontStyle: "normal",
       fontWeight: 500,
       fontSize: '40px',
       lineHeight: '107%',
@@ -63,15 +63,15 @@ const theme = createTheme({
       color: '#333CFF',
     },
     modalDesc: {
-      fontFamily: 'Euclid Circular A',
-      fontStyle: 'normal',
-      fontWeight: 'normal',
-      fontSize: '21px',
-      lineHeight: '107%',
-      textAlign: 'center',
-      color: '#000000',
+      fontFamily: "Euclid Circular A",
+      fontStyle: "normal",
+      fontWeight: "normal",
+      fontSize: "21px",
+      lineHeight: "107%",
+      textAlign: "center",
+      color: "#000000",
     },
   },
-})
+});
 
-export default theme
+export default theme;
