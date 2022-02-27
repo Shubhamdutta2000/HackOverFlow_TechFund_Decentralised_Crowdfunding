@@ -2,17 +2,19 @@ import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles((theme) => ({
   footer: {
+    position: "relative",
     width: "100%",
-    height: "68vh",
+    height: "69vh",
   },
   footerBg: {
+    width: "100%",
+    height: "68vh",
     position: "absolute",
     zIndex: "-1",
-    width: "100%",
-    // height: "20vh",
+    objectFit: "cover",
   },
   footerLinksContainer: {
-    position: "relative",
+    position: "absolute",
     width: "54%",
     display: "flex",
     justifyContent: "space-around",
@@ -60,7 +62,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   footerLogoPart: {
     position: "absolute",
-    width: "84.5%",
+    width: "88%",
     left: "50%",
     transform: "translateX(-50%)",
     bottom: "2.5vw",

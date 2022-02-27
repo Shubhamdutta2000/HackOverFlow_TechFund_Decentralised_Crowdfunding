@@ -14,18 +14,14 @@ export default function Footer() {
   const isMobile = useMediaQuery("(max-width:768px)");
 
   return (
-    <div
-      className={classes.footer}
-      style={{
-        position: "relative",
-        backgroundImage: !isMobile
-          ? `url("assets/desktop/FooterBg.png")`
-          : `url("assets/mobile/MobileFooterBg.png")`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className={classes.footer}>
+      <Image
+        src={!isMobile ? FooterBgDesktop : FooterBgmobile}
+        className={classes.footerBg}
+        quality={100}
+        layout="fill"
+      />
+
       <Grid container className={classes.footerLinksContainer}>
         {/* Navigate Part */}
         <ul className={classes.footerLinks_ul}>
