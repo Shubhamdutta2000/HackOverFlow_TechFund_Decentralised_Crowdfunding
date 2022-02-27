@@ -18,10 +18,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(10),
-    margin: theme.spacing(15, 12),
+    margin: theme.spacing(2, 12, 4, 12),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   avatar: {
     margin: theme.spacing(1),

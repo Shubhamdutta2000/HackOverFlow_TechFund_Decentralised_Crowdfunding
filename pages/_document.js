@@ -5,22 +5,22 @@ import { ServerStyleSheet } from "styled-components";
 import theme from "@/config/theme";
 
 export default class MyDocument extends Document {
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
       <Html lang="en">
         <Head>
           <link
+            href="http://fonts.cdnfonts.com/css/helvetica-255"
+            rel="stylesheet"
+          />
+          <link
             href="http://fonts.cdnfonts.com/css/circular-std"
             rel="stylesheet"
           />
           <link
             href="http://fonts.cdnfonts.com/css/euclid-circular-a"
-            rel="stylesheet"
-          />
-          <link
-            href="http://fonts.cdnfonts.com/css/helvetica-255"
             rel="stylesheet"
           />
           <meta charSet="utf-8" />

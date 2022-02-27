@@ -17,7 +17,7 @@ export const useStyles = makeStyles((theme) => ({
   textarea: {
     width: '36rem',
   },
-  btn: {
+  submit: {
     fontFamily: "'Euclid Circular A', sans-serif",
     borderRadius: "100rem",
     fontSize: "1.16vw",

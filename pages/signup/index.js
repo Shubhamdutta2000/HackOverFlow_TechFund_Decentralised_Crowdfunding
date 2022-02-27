@@ -46,16 +46,19 @@ export default function Register() {
           <Image
             src='/assets/desktop/LoginImg.png'
             alt='vector'
-            width={1000}
-            height={1100}
+            width={1300}
+            height={1500}
             className={isMobile ? classes.display : classes.image}
           />
         </Grid>
 
         <Grid item xs={12} sm={12} md={7} component={Paper} elevation={0} >
           <div className={classes.paper}>
-            <Typography component="h1" variant="h5">
-              Sign Up
+            <Typography component="h1" sx={{ textAlign: "left", fontSize: "44px" }} variant="heading">
+              Hey there!
+            </Typography>
+            <Typography component="h3" variant="description">
+              Hop on to the world of future and get started with contributing or innovating.
             </Typography>
             <form onSubmit={handleSubmit(OnSubmit)}>
               <TextField
@@ -97,7 +100,7 @@ export default function Register() {
               />
 
               {/* UserType */}
-              <FormControl fullWidth>
+              <FormControl style={{ marginTop: "1rem" }} fullWidth>
                 <InputLabel id="demo-simple-select-label">Type of User</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
@@ -116,7 +119,16 @@ export default function Register() {
                 fullWidth
                 variant="contained"
                 color="primary"
-                className={classes.submit}
+                // className={classes.submit}
+                sx={{
+                  fontFamily: "'Euclid Circular A', sans-serif",
+                  borderRadius: "100rem",
+                  fontSize: "1.16vw",
+                  padding: "0.50vw 2.1vw",
+                  margin: "3",
+                  color: '#fff',
+                  margin: "1.2rem 0",
+                }}
               >
                 Sign Up
               </Button>

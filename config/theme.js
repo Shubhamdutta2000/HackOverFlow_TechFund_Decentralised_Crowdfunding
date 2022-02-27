@@ -3,9 +3,9 @@ import { createTheme } from "@mui/material/styles";
 
 // Create a theme instance.
 const theme = createTheme({
-  root: {
-    fontFamily: "'Circular Std', sans-serif",
-  },
+  // root: {
+  //   fontFamily: "'Circular Std', sans-serif",
+  // },
   palette: {
     primary: { main: "#333CFF" }, // deep blue
     // secondary: { main: "#141414" }, // black

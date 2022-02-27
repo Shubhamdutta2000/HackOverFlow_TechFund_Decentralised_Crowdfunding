@@ -3,7 +3,6 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles((theme) => ({
   navbar: {
     position: "relative",
-    backgroundColor: theme.palette.background.secondary,
     padding: "0 7.5rem",
     [theme.breakpoints.down("sm")]: {
       padding: "0 1rem",

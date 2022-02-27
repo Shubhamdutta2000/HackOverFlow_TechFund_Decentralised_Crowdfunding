@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
+import { useRouter } from "next/router"
 
 import {
   Grid,
@@ -28,6 +29,7 @@ import { useStyles } from "../styles/Home.style.js";
 export default function Home() {
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width:768px)");
+  const router = useRouter()
 
   return (
     <div className={styles.container}>
@@ -41,7 +43,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Navbar />
+        <Navbar path={router.pathname} />
 
         {/* Hero */}
         <div className={classes.fullHero}>
