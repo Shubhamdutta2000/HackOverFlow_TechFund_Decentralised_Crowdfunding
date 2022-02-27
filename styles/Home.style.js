@@ -166,6 +166,18 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 
+  // Invest Section
+  investSection: {
+    position: "relative",
+    // height: "100vh",
+  },
+  investBgImg: {
+    position: "relative",
+    zIndex: "-1",
+    width: "100%",
+    objectFit: "cover",
+  },
+
   //Our Vision
   ourVisionImg: {
     width: "120%",

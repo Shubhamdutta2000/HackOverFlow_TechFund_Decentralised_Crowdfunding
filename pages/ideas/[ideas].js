@@ -1,7 +1,16 @@
-import React from 'react'
+import { Container, Typography } from '@mui/material'
+import CampaignCarousal from 'components/CampaignsCarousal'
+import Layout from 'layout/Layout'
+import IdeaBody from '../../components/IdeaBody'
 
-const IndividualIdea = () => {
-  return <div>IndividualIdea</div>
+const IndividualIdeaPage = () => {
+
+  return (
+    <Layout>
+      <IdeaBody />
+      <CampaignCarousal heading="Related Campaigns" />
+    </Layout>
+  )
 }
 
-export default IndividualIdea
+export default IndividualIdeaPage

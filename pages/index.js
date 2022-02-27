@@ -15,12 +15,14 @@ import {
 //Components
 import Navbar from "../components/Navbar.js";
 import Footer from "../components/Footer.js";
+import DiscoverCard from "../components/DiscoverCard.js";
 
 //Assets
 import HeroBgDesktop from "../public/assets/desktop/HeroBlackBg3.png";
 import HeroBgMobile from "../public/assets/mobile/MobileHeroBlackBg.png";
 import Section01Img from "../public/assets/desktop/Section01Img.png";
 import Section02Img from "../public/assets/desktop/Section02Img.png";
+import InvestBgImg from "../public/assets/desktop/InvestBgImg.png";
 import OurVisionImg from "../public/assets/desktop/OurVisionImg.png";
 
 import styles from "../styles/Home.module.css";
@@ -51,6 +53,7 @@ export default function Home() {
             <Image
               src={!isMobile ? HeroBgDesktop : HeroBgMobile}
               alt="HeroBg"
+              quality={100}
             />
           </div>
 
@@ -63,7 +66,7 @@ export default function Home() {
             touch the moon.
           </Typography>
 
-          <Grid container maxWidth="xl" className={classes.heroButtons}>
+          <Grid container maxwidth="xl" className={classes.heroButtons}>
             <Grid item md={6} align="center">
               <Link href="/">
                 <Button
@@ -88,12 +91,12 @@ export default function Home() {
         {/* Steps */}
         {/* 1st Section */}
         <Grid container style={{ marginTop: "-3vw", paddingBottom: "2vw" }}>
-          <Grid md={6} align="center">
+          <Grid item md={6} align="center">
             <div className={classes.section01Img}>
-              <Image src={Section01Img} alt="Section01Img" />
+              <Image src={Section01Img} alt="Section01Img" quality={100} />
             </div>
           </Grid>
-          <Grid md={6}>
+          <Grid item md={6}>
             <div className={classes.sectionContentDiv}>
               <Typography className={classes.sectionNumber}>01</Typography>
               <Typography variant="heading" className={classes.sectionHeading}>
@@ -114,7 +117,7 @@ export default function Home() {
 
         {/* 2nd Section */}
         <Grid container style={{ marginTop: "5vw", paddingBottom: "2vw" }}>
-          <Grid md={6}>
+          <Grid item md={6}>
             <div className={classes.section02ContentDiv}>
               <Typography className={classes.sectionNumber}>02</Typography>
               <Typography variant="heading" className={classes.sectionHeading}>
@@ -136,21 +139,30 @@ export default function Home() {
               </Link>
             </div>
           </Grid>
-          <Grid md={6} align="center">
+          <Grid item md={6} align="center">
             <div className={classes.section02Img}>
-              <Image src={Section02Img} alt="Section02Img" />
+              <Image src={Section02Img} alt="Section02Img" quality={100} />
             </div>
           </Grid>
         </Grid>
 
+        {/* Invest Section */}
+        <div className={classes.investSection}>
+          <div className={classes.investBgImg}>
+            <Image src={InvestBgImg} alt="InvestBgImg" />
+          </div>
+
+          <DiscoverCard />
+        </div>
+
         {/* Our Vision */}
         <Grid container style={{ paddingBottom: "2vw" }}>
-          <Grid md={6} align="center">
+          <Grid item md={6} align="center">
             <div className={classes.ourVisionImg}>
               <Image src={OurVisionImg} alt="OurVisionImg" />
             </div>
           </Grid>
-          <Grid md={6}>
+          <Grid item md={6}>
             <div className={classes.ourVisionContentDiv}>
               <Typography className={classes.sectionNumber}>
                 Our Vision
@@ -172,7 +184,7 @@ export default function Home() {
 
         {/* Newsletter */}
         <Grid container style={{ margin: "5.5vw 0", paddingBottom: "2vw" }}>
-          <Grid md={8}>
+          <Grid item md={8}>
             <div className={classes.newsletterContentDiv}>
               <Typography
                 variant="heading"
@@ -189,10 +201,10 @@ export default function Home() {
               </Typography>
             </div>
           </Grid>
-          <Grid md={4} align="left">
+          <Grid item md={4} align="left">
             <div
               align="right"
-              maxWidth="xl"
+              maxwidth="xl"
               style={{ position: "relative", width: "69%" }}
             >
               <TextField
