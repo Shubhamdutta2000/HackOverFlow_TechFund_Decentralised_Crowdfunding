@@ -4,6 +4,27 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
   },
+  navLogo: {
+    cursor: "pointer",
+    position: "relative",
+    marginLeft: "4.6vw",
+    marginTop: "1.4rem",
+    fontWeight: "700",
+    fontSize: "1.3rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "33vw",
+      left: "4vw",
+      top: "0.5vw",
+    },
+  },
+  backBtn: {
+    cursor: "pointer",
+    textAlign: "right",
+    marginRight: "4.6vw",
+    marginTop: "1.2rem",
+    fontWeight: "700",
+    fontSize: "1.3rem",
+  },
   image: {
     // height: '100vh',
     width: '100%',
@@ -18,7 +39,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(10),
-    margin: theme.spacing(2, 12, 4, 12),
     display: 'flex',
     flexDirection: 'column',
     // alignItems: 'center',
@@ -39,4 +59,5 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     color: '#fff',
   },
+
 }))

@@ -13,6 +13,7 @@ export const useStyles = makeStyles((theme) => ({
     // margin: '1rem 1rem 1rem 0'
   },
   navLogo: {
+    cursor: "pointer",
     position: "relative",
     width: "8.85rem",
     marginLeft: "2.4vw",

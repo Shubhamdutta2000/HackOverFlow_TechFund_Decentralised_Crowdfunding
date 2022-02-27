@@ -16,6 +16,8 @@ import {
 import { useLogin } from '../../utils/loginMoralis'
 import { useStyles } from '../../styles/auth.style'
 import Link from 'next/link'
+import AuthNavLogo from "../../public/assets/AuthNavLogo.png";
+
 
 export default function Login() {
   const classes = useStyles()
@@ -52,10 +54,16 @@ export default function Login() {
     }
   }, [isAuthenticated, user, router, authError, userError])
 
+
+  // Back to Previous page
+  const backToPrevPage = () => {
+    router.back()
+  }
+
   return (
     <>
       <Grid container spacing={'14'} component='main' className={classes.root}>
-        <Grid item xs={false} sm={false} md={5}>
+        <Grid item xs={false} sm={false} md={6}>
           <Image
             src='/assets/desktop/LoginImg.png'
             alt='vector'
@@ -65,10 +73,30 @@ export default function Login() {
           />
         </Grid>
 
-        <Grid item xs={12} sm={12} md={7} component={Paper} elevation={0}>
+        <Grid item xs={12} sm={12} md={6} component={Paper} elevation={0}>
+          <Grid container >
+            <Grid item sm={6}>
+              <div className={classes.navLogo}>
+                <Link href="/">
+                  <Image width='100' height={'20'} src={AuthNavLogo} alt="Logo" />
+                </Link>
+              </div>
+
+            </Grid>
+            <Grid item sm={6} >
+              <Typography onClick={backToPrevPage} component="h1" className={classes.backBtn}>
+                Back
+              </Typography>
+
+            </Grid>
+          </Grid>
+
           <div className={classes.paper}>
-            <Typography component='h1' variant='h5'>
-              Login
+            <Typography component="h1" sx={{ textAlign: "left", fontSize: "44px" }} variant="heading">
+              Hey there!
+            </Typography>
+            <Typography component="h3" style={{ marginBottom: "2rem", fontWeight: "500" }} variant="description" >
+              Hop on to the world of future and get started with contributing or innovating.
             </Typography>
             <form onSubmit={handleSubmit(OnSubmit)}>
               <TextField
