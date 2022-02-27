@@ -4,7 +4,10 @@ import { red } from '@mui/material/colors'
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#556cd6',
+      main: '#333CFF',
+    },
+    alternate: {
+      main: '#fff',
     },
     secondary: {
       main: '#19857b',
@@ -13,7 +16,11 @@ const theme = createTheme({
       main: '#333CFF',
     },
     error: {
-      main: red.A400,
+      main: '#F8485E',
+    },
+    background: {
+      primary: '#fff',
+      secondary: '#141414',
     },
   },
   typography: {
@@ -45,6 +52,24 @@ const theme = createTheme({
       fontSize: '27px',
       lineHeight: '107%',
       color: 'white',
+    },
+    modalHeader: {
+      fontFamily: 'Euclid Circular A',
+      fontStyle: 'normal',
+      fontWeight: 500,
+      fontSize: '37px',
+      lineHeight: '107%',
+      textAlign: 'center',
+      color: '#333CFF',
+    },
+    modalDesc: {
+      fontFamily: 'Euclid Circular A',
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      fontSize: '21px',
+      lineHeight: '107%',
+      textAlign: 'center',
+      color: '#000000',
     },
   },
 })

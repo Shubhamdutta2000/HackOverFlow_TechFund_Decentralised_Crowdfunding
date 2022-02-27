@@ -1,12 +1,24 @@
+import { useState } from 'react'
 import Image from 'next/image'
 import { Grid, Typography, Button, useMediaQuery } from '@mui/material'
 import { useStyles } from '../../styles/IndividualIdea/IdeaBody/ideaBody.style'
+import PaymentModal from '../Modal/PaymentModal'
 
 const IdeaBody = () => {
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
+
   const classes = useStyles()
   const isMobile = useMediaQuery('(max-width:900px)')
   return (
     <div className={classes.container}>
+      <PaymentModal
+        open={open}
+        setOpen={setOpen}
+        handleOpen={handleOpen}
+        handleClose={handleClose}
+      />
       {/* top section start*/}
       <Typography variant='h2'>Learn Web 3.0</Typography>
       <Typography variant='body2' className={classes.body}>
@@ -39,6 +51,7 @@ const IdeaBody = () => {
             variant='contained'
             color='button'
             className={isMobile ? classes.btnMob : classes.btn}
+            onClick={handleOpen}
           >
             Contribute to this project
           </Button>
