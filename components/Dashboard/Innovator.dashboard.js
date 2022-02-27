@@ -19,6 +19,7 @@ import Graph from "../../public/assets/desktop/InnovatorGraphImg.png";
 import Metamask from "../../public/assets/desktop/MetamaskImg.png";
 
 import { useStyles } from "../../styles/contributorDashboard.style";
+import Link from "next/link";
 
 const InnovatorDashboardComp = () => {
     const classes = useStyles();
@@ -30,13 +31,9 @@ const InnovatorDashboardComp = () => {
 
     return (
         <>
-            <Image
-                src={DashboardCoverImg}
-                alt="DashboardImg"
-                height={"200"}
-            ></Image>
+            <Image src={DashboardCoverImg} alt="DashboardImg" height={"200"}></Image>
 
-            <Grid container className={classes.container}>
+            <Grid style={{ height: "80%" }} spacing={'12'} container className={classes.container}>
                 {/* Left side card */}
                 <Grid
                     item
@@ -44,27 +41,79 @@ const InnovatorDashboardComp = () => {
                     sm={12}
                     md={5}
                     display="flex"
-                    justifyContent="flex-start"
+                    justifyContent="center"
                 >
-                    <Card sx={{ maxWidth: 345 }}>
-                        <Image src={UserPic} alt="User Image"></Image>
+                    <Card
+                        style={{
+                            width: "80%",
+                            marginTop: "-4rem",
+                            zIndex: "1",
+                            padding: "2rem",
+                            borderRadius: "40px",
+                            boxShadow:
+                                "0px 4px 4px rgba(0, 0, 0, 0.25), -5px 0px 20px 4px rgba(0, 0, 0, 0.06)",
+                        }}
+                    >
+                        <div style={{ marginLeft: "50%", transform: "translateX(-50%)" }}>
+                            <Image src={UserPic} alt="User Image"></Image>
+                        </div>
                         <CardContent>
-                            <Typography gutterBottom variant="h4" component="div">
+                            <Typography
+                                gutterBottom
+                                sx={{
+                                    fontFamily: "'Euclid Circular A', sans-serif",
+                                    fontSize: "38px",
+                                    color: "#333CFF",
+                                    fontWeight: "bold",
+                                }}
+                                align='center'
+                                variant="h4"
+                                component="div"
+                            >
                                 John Doe
                             </Typography>
-                            <Typography gutterBottom variant="h12" component="div">
+                            <Typography
+                                align='center'
+                                gutterBottom variant="description" component="div">
                                 johndoe@example.com
                             </Typography>
-                            <Typography className={classes.roleContent}>
+                            <Button
+                                sx={{
+                                    padding: "0.5rem 1rem",
+                                    maxWidth: "160px",
+                                    color: "rgba(0, 0, 0, 1)",
+                                    background: "#D3FFD0",
+                                    borderRadius: "54px",
+                                    fontSize: "15px",
+                                    marginTop: "1rem",
+                                    marginLeft: "50%",
+                                    transform: "translateX(-50%)",
+                                    fontFamily: "Euclid Circular A, sans-serif",
+                                }}
+                                className={classes.roleContent}
+                            >
                                 Contributor
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
+                            </Button>
+                            <Typography
+                                sx={{
+                                    fontFamily: "'Euclid Circular A', sans-serif",
+                                    marginTop: "1rem",
+                                }}
+                                align="center"
+                                color="primary"
+                            >
                                 Bio
                             </Typography>
+                            <Typography
+                                sx={{
+                                    fontFamily: "'Euclid Circular A', sans-serif",
+                                    marginTop: "1rem",
+                                }}
+                                align="center"
+                            >
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                            </Typography>
                         </CardContent>
-                        <CardActions>
-                            <Button size="small">Share</Button>
-                        </CardActions>
                     </Card>
                 </Grid>
 
@@ -91,11 +140,7 @@ const InnovatorDashboardComp = () => {
                                 </TabList>
                             </Box>
                             <TabPanel value="1">
-                                <Grid
-                                    style={{ marginTop: "0.5rem" }}
-                                    spacing={"20"}
-                                    container
-                                >
+                                <Grid style={{ marginTop: "0.5rem" }} spacing={"20"} container>
                                     <Grid className={classes.details} item md={9} xs={12}>
                                         <div className={classes.detailGroup}>
                                             <Typography
@@ -123,36 +168,44 @@ const InnovatorDashboardComp = () => {
                                     </Grid>
                                     <Grid item md={3} xs={12}>
                                         <Image src={Metamask} alt="Metamask"></Image>
-                                        <Button
-                                            type="submit"
-                                            fullWidth
-                                            variant="contained"
-                                            color="primary"
-                                            sx={{
-                                                fontFamily: "'Euclid Circular A', sans-serif",
-                                                borderRadius: "100rem",
-                                                fontSize: "0.9vw",
-                                                color: "#fff",
-                                            }}
-                                        >
-                                            Post a new Idea
-                                        </Button>
+                                        <Link href={'/dashboard/innovator/ideas/create'} style={{ textDecoration: "none" }}>
+                                            <Button
+                                                type="submit"
+                                                fullWidth
+                                                variant="contained"
+                                                color="primary"
+                                                sx={{
+                                                    fontFamily: "'Euclid Circular A', sans-serif",
+                                                    borderRadius: "100rem",
+                                                    fontSize: "0.9vw",
+                                                    color: "#fff",
+                                                }}
+                                            >
+                                                Post a new Idea
+                                            </Button>
+                                        </Link>
                                     </Grid>
                                 </Grid>
 
                                 <Grid spacing={"20"} style={{ marginTop: "4rem" }} container>
                                     <Grid item md={5} xs={12}>
-                                        <Card elevation={'8'} sx={{ maxWidth: 300 }}>
+                                        <Card elevation={"8"} sx={{ maxWidth: 300 }}>
                                             <CardContent sx={{ padding: "1.6rem" }}>
                                                 <Typography gutterBottom variant="h5" component="div">
                                                     View All Ideas
                                                 </Typography>
                                                 <Typography variant="heading" color="text.secondary">
-                                                    Take a look back to see how much contributors
-                                                    invested in your ideas
+                                                    Take a look back to see how much contributors invested
+                                                    in your ideas
                                                 </Typography>
                                             </CardContent>
-                                            <CardActions style={{ backgroundColor: "#141414", height: "5rem", padding: "1rem" }}>
+                                            <CardActions
+                                                style={{
+                                                    backgroundColor: "#141414",
+                                                    height: "5rem",
+                                                    padding: "1rem",
+                                                }}
+                                            >
                                                 <Button
                                                     variant="outlined"
                                                     sx={{
@@ -160,9 +213,9 @@ const InnovatorDashboardComp = () => {
                                                         borderRadius: "100rem",
                                                         fontSize: "0.9vw",
                                                         color: "#fff",
-                                                        borderRadius: '18px',
+                                                        borderRadius: "18px",
                                                         border: "3px solid #fff",
-                                                        marginLeft: "75%"
+                                                        marginLeft: "75%",
                                                     }}
                                                 >
                                                     View
