@@ -3,14 +3,17 @@ import Image from 'next/image'
 import { Grid, Typography, Button, useMediaQuery } from '@mui/material'
 import { useStyles } from '../../styles/IndividualIdea/IdeaBody/ideaBody.style'
 import PaymentModal from '../Modal/PaymentModal'
+import { useMoralis, useWeb3Transfer } from 'react-moralis'
 
 const IdeaBody = () => {
+  const classes = useStyles()
+  const isMobile = useMediaQuery('(max-width:900px)')
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const classes = useStyles()
-  const isMobile = useMediaQuery('(max-width:900px)')
+  const { user, isAuthenticated, authenticate } = useMoralis()
+
   return (
     <div className={classes.container}>
       <PaymentModal

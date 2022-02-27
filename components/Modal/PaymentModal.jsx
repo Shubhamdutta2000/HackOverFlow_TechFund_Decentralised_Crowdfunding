@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Backdrop,
   Box,
@@ -9,8 +9,24 @@ import {
   TextField,
 } from '@mui/material'
 import { useStyles } from '../../styles/PaymentModal/paymentmodal.style'
+import { useMoralis, useWeb3Transfer } from 'react-moralis'
+import { Moralis } from 'moralis'
+
 const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
   const classes = useStyles()
+  const [amount, setAmount] = useState(0.0001);
+
+  const { web3, enableWeb3, isWeb3Enabled, isWeb3EnableLoading, web3EnableError } = useMoralis()
+
+  useEffect(() => {
+    console.log(window.ethereum._state.accounts);
+  }, [web3])
+
+  const { fetch, error, isFetching } = useWeb3Transfer({
+    amount: Moralis.Units.ETH(amount),
+    receiver: '0x3aFdD22a2645222DF56357B0e34f80F91d3008F9',
+    type: 'native',
+  })
 
   return (
     <div>
@@ -35,22 +51,36 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
               to the world!
             </Typography>
             <div className={classes.fieldWrapper}>
-              <TextField placeholder='Enter Amount' className={classes.field} />
+              <TextField onChange={(e) => setAmount(e.target.value)} placeholder='Enter Amount' className={classes.field} />
               <div className={classes.eth}>Eth</div>
             </div>
             <div className={classes.btnWrapper}>
-              <Button
-                variant='contained'
-                color='button'
-                className={classes.btn}
-              >
-                Contribute
-              </Button>
+              {!isWeb3Enabled ?
+                <Button
+                  variant='contained'
+                  color='button'
+                  className={classes.btn}
+                  onClick={() => enableWeb3()}
+                  disabled={isWeb3Enabled}
+                >
+                  Connect with Metamask
+                </Button>
+                :
+                <Button
+                  variant='contained'
+                  color='button'
+                  className={classes.btn}
+                  onClick={() => fetch()}
+                  disabled={isFetching}
+                >
+                  Contribute
+                </Button>
+              }
             </div>
           </Box>
         </Fade>
       </Modal>
-    </div>
+    </div >
   )
 }
 
