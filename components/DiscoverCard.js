@@ -60,13 +60,11 @@ export default function DiscoverCard(props) {
             >
               @ Stylercross Pvt. Ltd.
             </Typography>
-            <div className={classes.discoverCard_innovatorPic}>
-              <Image
-                style={{ borderRadius: "50%" }}
-                src={DiscoverCardIdeaCoverImg}
-                alt=""
-              />
-            </div>
+            <img
+              className={classes.discoverCard_innovatorPic}
+              src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/d0/d0ca94e64f22a73c804405bd2565d6221ae6f1a2_full.jpg"
+              alt="abcd"
+            />
           </div>
         </CardContent>
 
