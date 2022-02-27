@@ -150,7 +150,7 @@ export default function Navbar({ path }) {
           }}
         >
           <div className={classes.navLogo}>
-            <Link href="/" style={{ cursor: 'pointer' }}>
+            <Link href="/">
               <Image src={NavLogo} alt="Picture of the author" />
             </Link>
           </div>
