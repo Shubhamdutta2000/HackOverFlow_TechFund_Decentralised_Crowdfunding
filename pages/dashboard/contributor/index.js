@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
+import Dashboard from "./contributorDashboard";
 
 const ContributorDashboard = () => {
     const { login, isAuthenticated, authError, userError, user } = useMoralis()
@@ -15,7 +16,7 @@ const ContributorDashboard = () => {
     }, [isAuthenticated, user])
 
     console.log(user && user.get("userType"));
-    return <div>Dashboard</div>
+    return <div><Dashboard></Dashboard></div>
 }
 
 export default ContributorDashboard
