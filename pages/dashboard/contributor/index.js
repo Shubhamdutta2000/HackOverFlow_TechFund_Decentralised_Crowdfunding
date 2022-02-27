@@ -2,8 +2,10 @@ import ContributorDashboardComp from "components/Dashboard/Contributor.dashboard
 import Layout from "layout/Layout";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useMoralis } from "react-moralis";
 
 const ContributorDashboard = () => {
+    const { user } = useMoralis()
     const router = useRouter()
 
     useEffect(() => {
