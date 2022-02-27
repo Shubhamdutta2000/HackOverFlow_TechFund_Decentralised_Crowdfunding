@@ -33,7 +33,7 @@ import { useStyles } from "../styles/Home.style.js";
 
 export default function Home() {
   const classes = useStyles();
-  const isMobile = useMediaQuery("(max-width:768px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
   const router = useRouter();
 
   const responsive = {
@@ -108,12 +108,12 @@ export default function Home() {
         {/* Steps */}
         {/* 1st Section */}
         <Grid container style={{ marginTop: "-3vw", paddingBottom: "2vw" }}>
-          <Grid item md={6} align="center">
+          <Grid md={6} align="center" className={classes.section01ImgGrid}>
             <div className={classes.section01Img}>
               <Image src={Section01Img} alt="Section01Img" quality={100} />
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid md={6} className={classes.section01ContentGrid}>
             <div className={classes.sectionContentDiv}>
               <Typography className={classes.sectionNumber}>01</Typography>
               <Typography variant="heading" className={classes.sectionHeading}>
@@ -144,9 +144,9 @@ export default function Home() {
                 variant="description"
                 className={classes.section02Description}
               >
-                We verify every innovator and contributor <br /> before they
-                start using our product. Decentralized encryption, verified
-                users, 100% foolproof.
+                We verify every innovator and contributor before they start
+                using our product. Decentralized encryption, verified users,
+                100% foolproof.
               </Typography>
               <hr className={classes.section02HorizontalLine} />
               <Link href="/">
@@ -188,13 +188,7 @@ export default function Home() {
               >
                 Invest in minds. Invest for the future.
               </Typography>
-              <div
-                style={{
-                  position: "relative",
-                  top: "8.3vw",
-                  marginBottom: "3rem",
-                }}
-              >
+              <div className={classes.investCards}>
                 <AliceCarousel
                   mouseTracking
                   items={items}
@@ -203,17 +197,18 @@ export default function Home() {
                 />
               </div>
             </div>
+            <Button className={classes.investViewBtn}>View More</Button>
           </div>
         </div>
 
         {/* Our Vision */}
         <Grid container style={{ paddingBottom: "2vw" }}>
-          <Grid item md={6} align="center">
+          <Grid md={8} align="left" className={classes.ourVisionImgGrid}>
             <div className={classes.ourVisionImg}>
               <Image src={OurVisionImg} alt="OurVisionImg" />
             </div>
           </Grid>
-          <Grid item md={6}>
+          <Grid md={4} className={classes.ourVisionContentGrid}>
             <div className={classes.ourVisionContentDiv}>
               <Typography className={classes.sectionNumber}>
                 Our Vision
