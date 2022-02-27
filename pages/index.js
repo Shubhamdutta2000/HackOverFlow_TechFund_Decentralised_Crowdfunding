@@ -83,7 +83,7 @@ export default function Home() {
             touch the moon.
           </Typography>
 
-          <Grid container maxWidth="xl" className={classes.heroButtons}>
+          <Grid container maxwidth="xl" className={classes.heroButtons}>
             <Grid item md={6} align="center">
               <Link href="/">
                 <Button
@@ -134,7 +134,7 @@ export default function Home() {
 
         {/* 2nd Section */}
         <Grid container style={{ marginTop: "5vw", paddingBottom: "2vw" }}>
-          <Grid md={6}>
+          <Grid item md={6}>
             <div className={classes.section02ContentDiv}>
               <Typography className={classes.sectionNumber}>02</Typography>
               <Typography variant="heading" className={classes.sectionHeading}>
@@ -156,7 +156,7 @@ export default function Home() {
               </Link>
             </div>
           </Grid>
-          <Grid md={6} align="center">
+          <Grid item md={6} align="center">
             <div className={classes.section02Img}>
               <Image src={Section02Img} alt="Section02Img" quality={100} />
             </div>
@@ -230,7 +230,7 @@ export default function Home() {
 
         {/* Newsletter */}
         <Grid container style={{ margin: "5.5vw 0", paddingBottom: "2vw" }}>
-          <Grid md={8}>
+          <Grid item md={8}>
             <div className={classes.newsletterContentDiv}>
               <Typography
                 variant="heading"
@@ -247,10 +247,10 @@ export default function Home() {
               </Typography>
             </div>
           </Grid>
-          <Grid md={4} align="left">
+          <Grid item md={4} align="left">
             <div
               align="right"
-              maxWidth="xl"
+              maxwidth="xl"
               style={{ position: "relative", width: "69%" }}
             >
               <TextField
