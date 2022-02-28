@@ -3,7 +3,6 @@ import { makeStyles } from "@mui/styles";
 export const useStyles = makeStyles((theme) => ({
   container: {
     position: "relative",
-    top: "-0.1vw",
     padding: "3rem 0 1rem 8.1rem",
     [theme.breakpoints.down("sm")]: {
       padding: "2rem 2.3rem",
