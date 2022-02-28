@@ -24,7 +24,7 @@ const AllIdeas = () => {
         <Typography variant="heading" className={classes.yourLatestHeading}>
           Your Latest Campaign Invest
         </Typography>
-        <CampaignCard />
+        <CampaignCard page="discover" index={0} />
       </div>
 
       <CampaignCarousal
