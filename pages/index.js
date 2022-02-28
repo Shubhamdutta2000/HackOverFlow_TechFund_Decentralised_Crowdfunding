@@ -64,7 +64,6 @@ export default function Home() {
     <DiscoverCard key={idea.objectId} idea={idea} />
   ))
 
-
   return (
     <div className={styles.container}>
       <Head>
@@ -76,7 +75,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.main} style={{ overflowX: "hidden" }}>
+        {/* Loader */}
+        <div className={classes.loader}>
+          <div className={classes.loader__yellowBg}></div>
+          <p className={classes.loader__loadingText}>Loading innovations...</p>
+        </div>
+
+        {/* Nav */}
         <Navbar path={router.pathname} />
 
         {/* Hero */}
@@ -208,7 +214,7 @@ export default function Home() {
                   mouseTracking
                   items={items}
                   responsive={responsive}
-                // controlsStrategy="alternate"
+                  // controlsStrategy="alternate"
                 />
               </div>
             </div>
