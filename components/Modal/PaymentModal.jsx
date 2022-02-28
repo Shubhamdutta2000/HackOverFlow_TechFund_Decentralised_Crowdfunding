@@ -52,7 +52,7 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
   //   }
   // }, [isWeb3Enabled, ideaData, metamaskAddress])
 
-  console.log(metamaskAddress)
+  // console.log(metamaskAddress)
   const { fetch, error, isFetching } = useWeb3Transfer({
     amount: Moralis.Units.ETH(amount),
     receiver: 0xc29681d14b51b8db30a7584e4d3505d2fb78d5b6,
