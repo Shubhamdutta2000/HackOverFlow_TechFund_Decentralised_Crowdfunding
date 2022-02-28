@@ -56,4 +56,15 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     color: '#fff',
   },
+
+  yourLatestSection: {
+    position: "relative",
+    margin: "2rem 0 1rem",
+  },
+  yourLatestHeading: {
+    position: "relative",
+    fontSize: "2.4rem",
+    fontWeight: "500",
+    color: theme.palette.primary.main,
+  },
 }))

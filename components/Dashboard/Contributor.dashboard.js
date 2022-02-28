@@ -9,18 +9,15 @@ import {
     Typography,
     Button,
     Card,
-    CardActions,
     CardContent,
 } from "@mui/material";
 
 import DashboardCoverImg from "../../public/assets/desktop/DashboardCoverImg.png";
 import UserPic from "../../public/assets/desktop/InnovatorProfileImg.png";
-import Graph from "../../public/assets/desktop/InnovatorGraphImg.png";
-import Metamask from "../../public/assets/desktop/MetamaskImg.png";
 
 import { useStyles } from "../../styles/contributorDashboard.style";
-import Link from "next/link";
 import { useMoralis } from "react-moralis";
+import CampaignCard from "components/CampaignCard";
 
 
 const ContributorDashboardComp = () => {
@@ -96,7 +93,6 @@ const ContributorDashboardComp = () => {
                                     transform: "translateX(-50%)",
                                     fontFamily: "Euclid Circular A, sans-serif",
                                 }}
-                                className={classes.roleContent}
                             >
                                 {user && user.get("userType")}
 
@@ -161,7 +157,12 @@ const ContributorDashboardComp = () => {
                                 </TabList>
                             </Box>
                             <TabPanel value="1">
-
+                                <div className={classes.yourLatestSection}>
+                                    <Typography variant="heading" className={classes.yourLatestHeading}>
+                                        Your Latest Campaign Invest
+                                    </Typography>
+                                    <CampaignCard page="dashboard" />
+                                </div>
                             </TabPanel>
                         </TabContext>
                     </Box>

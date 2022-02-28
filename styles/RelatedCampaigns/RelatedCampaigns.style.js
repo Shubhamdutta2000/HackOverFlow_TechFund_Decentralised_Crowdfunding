@@ -43,8 +43,6 @@ export const useStyles = makeStyles((theme) => ({
   yourLatestPic: {
     borderRadius: "1.4vw",
     position: "relative",
-    width: "100%",
-    height: "100%",
   },
   yourLatestCardContent: {
     position: "relative",

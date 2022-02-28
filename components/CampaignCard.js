@@ -1,13 +1,14 @@
 import React from 'react'
-import { Container, Typography, Box, Card, CardContent } from "@mui/material";
+import { Typography, Box, Card } from "@mui/material";
 import { useStyles } from "styles/RelatedCampaigns/RelatedCampaigns.style";
+import Image from 'next/image';
+import LatestPic from "../public/assets/desktop/DiscoverCardIdeaCoverImg.png"
 
-
-export default function CampaignCard() {
+export default function CampaignCard({ page }) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.yourLatestCard}>
+        <Card style={{ width: page === "dashboard" && "100%" }} className={classes.yourLatestCard}>
             <Box
                 style={{
                     display: "flex",
@@ -17,8 +18,9 @@ export default function CampaignCard() {
                 }}
             >
                 <div className={classes.yourLatestPicDiv}>
-                    <img
-                        src="assets/desktop/DiscoverCardIdeaCoverImg.png"
+                    <Image
+                        src={LatestPic}
+                        height={page === "dashboard" ? '1450' : "860"}
                         className={classes.yourLatestPic}
                     />
                 </div>
@@ -30,19 +32,23 @@ export default function CampaignCard() {
                         component="div"
                         color="text.secondary"
                         variant="description"
+                        style={{ fontSize: page === "dashboard" && '1rem' }}
                         className={classes.yourLatestBadge}
                     >
                         Design
                     </Typography>
                     <Typography
                         variant="description"
+                        style={{ fontSize: page === "dashboard" && '1.8vw' }}
                         className={classes.yourLatestCardHeading}
                         component="div"
+
                     >
                         Learn Web 3.0
                     </Typography>
                     <Typography
                         variant="description"
+                        style={{ fontSize: page === "dashboard" && '1vw' }}
                         className={classes.yourLatestCardDescription}
                     >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem
@@ -59,6 +65,7 @@ export default function CampaignCard() {
                             variant="description"
                             color="text.secondary"
                             className={classes.yourLatestCard_innovatorName}
+                            style={{ fontSize: page === "dashboard" && '0.9vw' }}
                         >
                             @ Stylercross Pvt. Ltd.
                         </Typography>
@@ -67,23 +74,25 @@ export default function CampaignCard() {
                     {/* Black Part */}
                     <div className={classes.details}>
                         <div className={classes.detailGroup}>
-                            <Typography variant="ideaStats" className={classes.greenText}>
+                            <Typography style={{ fontSize: "16px" }} variant="ideaStats" className={classes.greenText}>
                                 2 ETH
                             </Typography>
-                            <Typography variant="ideaStats">raised of 5 ETH</Typography>
+                            <Typography style={{ fontSize: "18px" }} variant="ideaStats">raised of 5 ETH</Typography>
                         </div>
                         <div className={classes.detailGroup}>
-                            <Typography variant="ideaStats" className={classes.greenText}>
+                            <Typography style={{ fontSize: "16px" }} variant="ideaStats" className={classes.greenText}>
                                 12
                             </Typography>
-                            <Typography variant="ideaStats">contributors</Typography>
+                            <Typography style={{ fontSize: "18px" }} variant="ideaStats">contributors</Typography>
                         </div>
-                        <div className={classes.detailGroup}>
-                            <Typography variant="ideaStats" className={classes.redText}>
-                                1hr 30min 45sec
-                            </Typography>
-                            <Typography variant="ideaStats">Ending in</Typography>
-                        </div>
+                        {page !== "dashboard" &&
+                            <div className={classes.detailGroup}>
+                                <Typography style={{ fontSize: "16px" }} variant="ideaStats" className={classes.redText}>
+                                    1hr 30min 45sec
+                                </Typography>
+                                <Typography style={{ fontSize: "18px" }} variant="ideaStats">Ending in</Typography>
+                            </div>
+                        }
                     </div>
                 </div>
             </Box>
