@@ -81,6 +81,9 @@ export const useStyles = makeStyles((theme) => ({
   storyDesc: {
     marginTop: '2rem',
     marginLeft: '3rem',
+    fontFamily: 'Euclid Circular A',
+    textAlign: 'justify',
+    width: '100%',
   },
 
   reportBtnContainer: {

@@ -17,7 +17,6 @@ const IdeaBody = ({ data }) => {
 
   const { user, isAuthenticated, authenticate } = useMoralis()
 
-
   return (
     <div className={classes.container}>
       <PaymentModal
@@ -28,10 +27,20 @@ const IdeaBody = ({ data }) => {
         data={data}
       />
       {/* top section start*/}
-      <Typography style={{ fontSize: "38px", marginBottom: "0.5rem" }} component={'h1'} variant='heading'>{data && data.title}</Typography>
+      <Typography
+        style={{ fontSize: '38px', marginBottom: '0.5rem' }}
+        component={'h1'}
+        variant='heading'
+      >
+        {data && data.title}
+      </Typography>
       <Grid container>
         <Grid item md={6}>
-          <Typography style={{ fontSize: "20px", marginBottom: "0.4rem" }} variant='description' className={classes.body}>
+          <Typography
+            style={{ fontSize: '20px', marginBottom: '0.4rem' }}
+            variant='description'
+            className={classes.body}
+          >
             {data && data.description}
           </Typography>
         </Grid>
@@ -60,7 +69,7 @@ const IdeaBody = ({ data }) => {
           </div>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
-          {isAuthenticated ?
+          {isAuthenticated ? (
             <Button
               variant='contained'
               color='button'
@@ -69,16 +78,16 @@ const IdeaBody = ({ data }) => {
             >
               Contribute to this project
             </Button>
-            :
+          ) : (
             <Button
               variant='contained'
               color='button'
               className={isMobile ? classes.btnMob : classes.btn}
-              onClick={() => router.push("/login")}
+              onClick={() => router.push('/login')}
             >
               Sign To Contribute
             </Button>
-          }
+          )}
         </Grid>
       </Grid>
       {/* top section end*/}
