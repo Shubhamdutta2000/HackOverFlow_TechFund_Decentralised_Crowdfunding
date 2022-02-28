@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "layout/Layout";
 
 import {
@@ -24,7 +24,7 @@ const Contributions = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  useEffect(() => {
+  useEffect (() => {
     const isAuthenticated = localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user")).isAuthenticated
       : false
