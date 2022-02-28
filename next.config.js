@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     domains: ["github.com"],
   },
+  optimizeFonts: false,
 };
 
 module.exports = nextConfig;
