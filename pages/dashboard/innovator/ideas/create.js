@@ -2,6 +2,7 @@ import IdeaForm from "components/CreateIdea/IdeaForm"
 import IdeaHeader from "components/CreateIdea/IdeaHeader"
 import Layout from "layout/Layout";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const CreateIdea = () => {
     const router = useRouter()

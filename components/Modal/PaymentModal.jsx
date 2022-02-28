@@ -26,8 +26,6 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
     web3,
     enableWeb3,
     isWeb3Enabled,
-    isWeb3EnableLoading,
-    web3EnableError,
     user,
   } = useMoralis()
 
@@ -57,13 +55,14 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
     console.log(window.ethereum._state.accounts)
     var json = JSON.stringify(ideaData, null, 2)
     var obj = JSON.parse(json)
-    // setMetamaskAddress(obj[0] && obj[0].metaMaskAddress)
+    setMetamaskAddress(obj[0] && obj[0].metaMaskAddress)
     console.log(obj)
-    // if (!error) {
-    //   save({ amount, ideaId, contributorId })
-    // }
+    if (!error) {
+      save({ amount, ideaId, contributorId })
+    }
   }, [isWeb3Enabled, ideaData, metamaskAddress])
 
+  console.log(metamaskAddress);
   const { fetch, error, isFetching } = useWeb3Transfer({
     amount: Moralis.Units.ETH(amount),
     receiver: metamaskAddress,
