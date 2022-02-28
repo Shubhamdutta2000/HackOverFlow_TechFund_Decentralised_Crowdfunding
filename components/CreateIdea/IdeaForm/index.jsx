@@ -38,7 +38,7 @@ const IdeaForm = () => {
     setFormData((f) => ({
       ...f,
       [e.target.name]: e.target.value,
-      createdBy: user && user.id,
+      createdBy: user && user.username,
     }))
   }
 
