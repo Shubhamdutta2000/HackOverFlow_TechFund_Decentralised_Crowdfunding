@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { Container, Typography } from '@mui/material'
 import CampaignCarousal from 'components/CampaignsCarousal'
 import Layout from 'layout/Layout'
 import IdeaBody from '../../components/IdeaBody'

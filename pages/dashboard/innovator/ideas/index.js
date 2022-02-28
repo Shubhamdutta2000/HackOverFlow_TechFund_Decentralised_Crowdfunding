@@ -1,5 +1,21 @@
+import Layout from "layout/Layout"
+import { useRouter } from "next/router"
+import { useEffect } from "react"
+
 const InnovatorIdeas = () => {
-    return <div>InnovatorIdeas</div>
+    const router = useRouter()
+
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user")).isAuthenticated
+            : false
+        if (!isAuthenticated) {
+            router.push("/login")
+        }
+    }, [router])
+
+
+    return <Layout>InnovatorIdeas</Layout>
 }
 
 export default InnovatorIdeas

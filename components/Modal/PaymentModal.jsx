@@ -9,12 +9,7 @@ import {
   TextField,
 } from '@mui/material'
 import { useStyles } from '../../styles/PaymentModal/paymentmodal.style'
-import {
-  useMoralis,
-  useWeb3Transfer,
-  useMoralisQuery,
-  useNewMoralisObject,
-} from 'react-moralis'
+import { useMoralis, useWeb3Transfer } from 'react-moralis'
 import { Moralis } from 'moralis'
 
 const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
