@@ -26,9 +26,9 @@ export default function CampaignCard({ page }) {
   }, [ideaData])
 
   return (
-    <Link href={`ideas/${idea?.objectId}`} passHref={true}>
+    <Link href={`/ideas/${idea?.objectId}`} passHref={true}>
       <Card
-        style={{ width: page === 'dashboard' && '100%' }}
+        style={{ cursor: "pointer", width: page === 'dashboard' && '100%' }}
         className={classes.yourLatestCard}
       >
         <Box

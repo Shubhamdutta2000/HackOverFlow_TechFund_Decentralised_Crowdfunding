@@ -3,16 +3,20 @@ import Image from 'next/image'
 import { Grid, Typography, Button, useMediaQuery } from '@mui/material'
 import { useStyles } from '../../styles/IndividualIdea/IdeaBody/ideaBody.style'
 import PaymentModal from '../Modal/PaymentModal'
-import { useMoralis, useWeb3Transfer } from 'react-moralis'
+import { useMoralis } from 'react-moralis'
+import { useRouter } from 'next/router'
 
 const IdeaBody = ({ data }) => {
   const classes = useStyles()
+  const router = useRouter()
+
   const isMobile = useMediaQuery('(max-width:900px)')
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
   const { user, isAuthenticated, authenticate } = useMoralis()
+
 
   return (
     <div className={classes.container}>
@@ -52,14 +56,25 @@ const IdeaBody = ({ data }) => {
           </div>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
-          <Button
-            variant='contained'
-            color='button'
-            className={isMobile ? classes.btnMob : classes.btn}
-            onClick={handleOpen}
-          >
-            Contribute to this project
-          </Button>
+          {isAuthenticated ?
+            <Button
+              variant='contained'
+              color='button'
+              className={isMobile ? classes.btnMob : classes.btn}
+              onClick={handleOpen}
+            >
+              Contribute to this project
+            </Button>
+            :
+            <Button
+              variant='contained'
+              color='button'
+              className={isMobile ? classes.btnMob : classes.btn}
+              onClick={() => router.push("/login")}
+            >
+              Sign To Contribute
+            </Button>
+          }
         </Grid>
       </Grid>
       {/* top section end*/}
