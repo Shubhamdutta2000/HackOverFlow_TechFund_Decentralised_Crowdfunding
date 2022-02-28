@@ -255,7 +255,7 @@ const ContributorDashboardComp = () => {
                   >
                     Your Latest Campaign Invest
                   </Typography>
-                  <CampaignCard page="dashboard" />
+                  <CampaignCard page="dashboard" index={0} />
                 </div>
                 <Link
                   style={{ textDecoration: "none" }}
