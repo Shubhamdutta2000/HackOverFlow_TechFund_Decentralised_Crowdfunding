@@ -22,50 +22,45 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
   const [amount, setAmount] = useState(0.0001)
   const [metamaskAddress, setMetamaskAddress] = useState('')
 
-  const {
-    web3,
-    enableWeb3,
-    isWeb3Enabled,
-    user,
-  } = useMoralis()
+  const { web3, enableWeb3, isWeb3Enabled, user } = useMoralis()
 
-  const {
-    data: ideaData,
-    error: queryError,
-    isLoading,
-  } = useMoralisQuery(
-    'User',
-    (query) => query.equalTo('objectId', data && data.createdBy),
-    [data],
-    {
-      live: true,
-    }
-  )
+  // const {
+  //   data: ideaData,
+  //   error: queryError,
+  //   isLoading,
+  // } = useMoralisQuery(
+  //   'User',
+  //   (query) => query.equalTo('objectId', data && data.createdBy),
+  //   [data],
+  //   {
+  //     live: true,
+  //   }
+  // )
 
-  const {
-    isSaving,
-    error: contribError,
-    save,
-  } = useNewMoralisObject('Contribution')
+  // const {
+  //   isSaving,
+  //   error: contribError,
+  //   save,
+  // } = useNewMoralisObject('Contribution')
 
-  var ideaId = data?.objectId
-  var contributorId = user?.get('objectId')
+  // var ideaId = data?.objectId
+  // var contributorId = user?.get('objectId')
 
-  useEffect(() => {
-    console.log(window.ethereum._state.accounts)
-    var json = JSON.stringify(ideaData, null, 2)
-    var obj = JSON.parse(json)
-    setMetamaskAddress(obj[0] && obj[0].metaMaskAddress)
-    console.log(obj)
-    if (!error) {
-      save({ amount, ideaId, contributorId })
-    }
-  }, [isWeb3Enabled, ideaData, metamaskAddress])
+  // useEffect(() => {
+  //   console.log(window.ethereum._state.accounts)
+  //   var json = JSON.stringify(ideaData, null, 2)
+  //   var obj = JSON.parse(json)
+  //   setMetamaskAddress(obj[0] && obj[0].metaMaskAddress)
+  //   console.log(obj)
+  //   if (!error) {
+  //     save({ amount, ideaId, contributorId })
+  //   }
+  // }, [isWeb3Enabled, ideaData, metamaskAddress])
 
-  console.log(metamaskAddress);
+  console.log(metamaskAddress)
   const { fetch, error, isFetching } = useWeb3Transfer({
     amount: Moralis.Units.ETH(amount),
-    receiver: metamaskAddress,
+    receiver: 0xc29681d14b51b8db30a7584e4d3505d2fb78d5b6,
     type: 'native',
   })
 
