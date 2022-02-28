@@ -52,7 +52,7 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
   var contributorId = user?.get('objectId')
 
   useEffect(() => {
-    console.log(window.ethereum._state.accounts)
+    // console.log(window.ethereum._state.accounts)
     var json = JSON.stringify(ideaData, null, 2)
     var obj = JSON.parse(json)
     setMetamaskAddress(obj[0] && obj[0].metaMaskAddress)
