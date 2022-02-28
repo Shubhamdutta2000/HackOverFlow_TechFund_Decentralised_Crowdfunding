@@ -7,8 +7,8 @@ import theme from '@/config/theme'
 function MyApp({ pageProps, Component }) {
   return (
     <MoralisProvider
-      appId={process.env.NEXT_PUBLIC_AMITRAJIT_APP_ID}
-      serverUrl={process.env.NEXT_PUBLIC_AMITRAJIT_SERVER_URL}
+      appId={process.env.NEXT_PUBLIC_PROD_APP_ID}
+      serverUrl={process.env.NEXT_PUBLIC_PROD_SERVER_URL}
     >
       <ThemeProvider theme={theme}>
         {/* <CssBaseline /> */}
