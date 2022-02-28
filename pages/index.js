@@ -37,7 +37,7 @@ export default function Home() {
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width:600px)");
   const router = useRouter();
-  const [ideas, setIdeas] = useState([])
+  const [ideas, setIdeas] = useState([]);
 
   const responsive = {
     428: { items: 1 },
@@ -49,21 +49,19 @@ export default function Home() {
     data: ideaData,
     error: ideaError,
     isLoading,
-  } = useMoralisQuery('Idea')
+  } = useMoralisQuery("Idea");
 
   useEffect(() => {
     if (ideaData != undefined && ideaData != null) {
-      var json = JSON.stringify(ideaData, null, 2)
-      var obj = JSON.parse(json)
-      setIdeas(obj)
+      var json = JSON.stringify(ideaData, null, 2);
+      var obj = JSON.parse(json);
+      setIdeas(obj);
     }
-  }, [ideaData])
-
+  }, [ideaData]);
 
   const items = ideas?.map((idea) => (
     <DiscoverCard key={idea.objectId} idea={idea} />
-  ))
-
+  ));
 
   return (
     <div className={styles.container}>
@@ -100,7 +98,7 @@ export default function Home() {
 
           <Grid container maxwidth="xl" className={classes.heroButtons}>
             <Grid item md={6} align="center">
-              <Link href="/">
+              <Link href="/ideas">
                 <Button
                   className={clsx(classes.heroBtn, classes.heroBtn_discover)}
                 >
@@ -109,7 +107,7 @@ export default function Home() {
               </Link>
             </Grid>
             <Grid item md={6} align="center">
-              <Link href="/">
+              <Link href="/login">
                 <Button
                   className={clsx(classes.heroBtn, classes.heroBtn_getStarted)}
                 >
@@ -164,7 +162,7 @@ export default function Home() {
                 100% foolproof.
               </Typography>
               <hr className={classes.section02HorizontalLine} />
-              <Link href="/">
+              <Link href="/ideas">
                 <Button className={classes.sectionContributorBtn}>
                   Become a Contributor
                 </Button>
@@ -212,7 +210,9 @@ export default function Home() {
                 />
               </div>
             </div>
-            <Button className={classes.investViewBtn}>View More</Button>
+            <Link href={"/ideas"}>
+              <Button className={classes.investViewBtn}>View More</Button>
+            </Link>{" "}
           </div>
         </div>
 

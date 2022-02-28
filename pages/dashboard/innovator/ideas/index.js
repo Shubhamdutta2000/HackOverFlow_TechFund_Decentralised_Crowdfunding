@@ -39,7 +39,7 @@ const InnovatorIdeas = () => {
                     dolor sit amet.
                 </Typography>
 
-                <Grid container spacing="30">
+                <Grid container spacing="30" style={{ paddingBottom: '4rem' }}>
                     {ideas && ideas.map((idea) => (
                         <Grid item md={6} xs={12}>
                             {idea}

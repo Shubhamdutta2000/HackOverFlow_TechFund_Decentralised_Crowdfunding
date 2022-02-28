@@ -38,7 +38,7 @@ export default function DiscoverCard({ idea }) {
               component='div'
               className={classes.discoverCard_badge}
             >
-              Design
+              Tech
             </Typography>
             <Typography
               gutterBottom
@@ -46,7 +46,7 @@ export default function DiscoverCard({ idea }) {
               component='div'
               className={classes.discoverCard_heading}
             >
-              {idea && idea.title}
+              {idea && idea.description && idea.description.substring(0, 18)}..
             </Typography>
             <Typography
               variant='description'

@@ -57,7 +57,7 @@ export default function CampaignCard({ page }) {
               style={{ fontSize: page === 'dashboard' && '1rem' }}
               className={classes.yourLatestBadge}
             >
-              Design
+              Tech
             </Typography>
             <Typography
               variant='description'
@@ -65,14 +65,14 @@ export default function CampaignCard({ page }) {
               className={classes.yourLatestCardHeading}
               component='div'
             >
-              {idea?.title}
+              {idea && idea.title && idea.title.substring(0, 30)}..
             </Typography>
             <Typography
               variant='description'
               style={{ fontSize: page === 'dashboard' && '1vw' }}
               className={classes.yourLatestCardDescription}
             >
-              {idea?.description}
+              {idea && idea.description && idea.description.substring(0, 50)}..
             </Typography>
 
             <div className={classes.yourLatestCard_innovatorDiv}>
