@@ -3,6 +3,68 @@ import HeroBg from "../public/assets/desktop/HeroBlackBg.png";
 import InvestBgImg from "../public/assets/desktop/InvestBgImg.png";
 
 export const useStyles = makeStyles((theme) => ({
+  loader: {
+    overflowX: "hidden",
+    position: "absolute",
+    width: "100%",
+    height: "100vh",
+    background: "#fff",
+    left: "0",
+    top: "0",
+    animation: "$loader__opacity 5.1s",
+    animationFillMode: "forwards",
+    zIndex: "100",
+  },
+  "@keyframes loader__opacity": {
+    "0%": {
+      opacity: "1",
+    },
+    "80%": {
+      opacity: "1",
+    },
+    "100%": {
+      opacity: "0",
+      visibility: "hidden",
+      display: "none",
+    },
+  },
+  loader__yellowBg: {
+    position: "absolute",
+    height: "100vh",
+    backgroundColor: "#000",
+    animationDelay: "1.5s",
+    animation: "$Loader__enteringBg 2.2s ease",
+    animationFillMode: "forwards",
+    animationDelay: "2.7s",
+    overflowX: "hidden",
+  },
+  "@keyframes Loader__enteringBg": {
+    "0%": {
+      width: "0",
+    },
+    "100%": {
+      width: "100vw",
+    },
+  },
+  loader__loadingText: {
+    position: "absolute",
+    bottom: "6.4vw",
+    color: "#333",
+    marginLeft: "30px",
+    fontSize: "13.5vw",
+    fontFamily: "'Euclid Circular A', sans-serif",
+    left: "65.5vw",
+    color: theme.palette.primary.main,
+    fontSize: "1.3vw",
+    zIndex: "1",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.2rem",
+      bottom: "50%",
+      left: "50%",
+      transform: "translate(-50, -50%)",
+    },
+  },
+  // Hero starts
   fullHero: {
     position: "relative",
     top: "-0.2vw",
