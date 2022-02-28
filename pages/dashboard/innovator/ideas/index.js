@@ -1,8 +1,12 @@
 import Layout from "layout/Layout"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
+import { Grid, Typography } from "@mui/material"
+import { useStyles } from "../../../../styles/viewIdeasInnovator.style";
+import CampaignCard from "components/CampaignCard";
 
 const InnovatorIdeas = () => {
+    const classes = useStyles()
     const router = useRouter()
 
     useEffect(() => {
@@ -14,8 +18,37 @@ const InnovatorIdeas = () => {
         }
     }, [router])
 
+    const ideas = [
+        <CampaignCard page="dashboard" innovator={'true'} key={'1'} />,
+        <CampaignCard page="dashboard" innovator={'true'} key={'2'} />,
+        <CampaignCard page="dashboard" innovator={'true'} key={'3'} />
+    ]
 
-    return <Layout>InnovatorIdeas</Layout>
+
+    return (
+        <Layout>
+            <div className={classes.container}>
+                <Typography variant="heading" className={classes.ideaHeading}>
+                    Your Ideas
+                </Typography>
+                <Typography
+                    variant="description"
+                    className={classes.ideaDescription}
+                >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
+                    dolor sit amet.
+                </Typography>
+
+                <Grid container spacing="30">
+                    {ideas && ideas.map((idea) => (
+                        <Grid item md={6} xs={12}>
+                            {idea}
+                        </Grid>
+                    ))}
+                </Grid>
+            </div>
+        </Layout >
+    )
 }
 
 export default InnovatorIdeas

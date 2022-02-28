@@ -26,7 +26,7 @@ const IdeaBody = ({ data }) => {
       {/* top section start*/}
       <Typography variant='h2'>{data && data.title}</Typography>
       <Typography variant='body2' className={classes.body}>
-        {data && data.desc}
+        {data && data.description}
       </Typography>
       <Grid container className={classes.statContainer}>
         <Grid item xs={12} sm={12} md={6} className={classes.details}>

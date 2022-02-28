@@ -4,7 +4,7 @@ import { useStyles } from "styles/RelatedCampaigns/RelatedCampaigns.style";
 import Image from 'next/image';
 import LatestPic from "../public/assets/desktop/DiscoverCardIdeaCoverImg.png"
 
-export default function CampaignCard({ page }) {
+export default function CampaignCard({ page, innovator }) {
     const classes = useStyles();
 
     return (
@@ -20,7 +20,7 @@ export default function CampaignCard({ page }) {
                 <div className={classes.yourLatestPicDiv}>
                     <Image
                         src={LatestPic}
-                        height={page === "dashboard" ? '1450' : "860"}
+                        height={page === "dashboard" ? innovator === "true" ? '1800' : '1450' : "860"}
                         className={classes.yourLatestPic}
                     />
                 </div>

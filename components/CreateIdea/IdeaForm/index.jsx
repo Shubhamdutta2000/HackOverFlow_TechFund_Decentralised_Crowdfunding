@@ -45,11 +45,11 @@ const IdeaForm = () => {
   // update innovator user data with their metamask address and create idea
   const submitHandler = (e) => {
     setUserData({
-      metaMaskAddress: window.ethereum._state.accounts[0]
+      metaMaskAddress: window.ethereum._state.accounts[0],
     })
     e.preventDefault()
     createIdea({ formData, save, error })
-    router.push("/dashboard/innovator")
+    router.push('/dashboard/innovator')
   }
 
   return (
@@ -94,7 +94,7 @@ const IdeaForm = () => {
               onChange={(e) => handleChange(e)}
             />
 
-            {!isWeb3Enabled ?
+            {!isWeb3Enabled ? (
               <Button
                 fullWidth
                 variant='contained'
@@ -105,7 +105,7 @@ const IdeaForm = () => {
               >
                 Connect with Metamask
               </Button>
-              :
+            ) : (
               <Button
                 fullWidth
                 variant='contained'
@@ -116,10 +116,7 @@ const IdeaForm = () => {
               >
                 Submit Idea
               </Button>
-            }
-
-
-
+            )}
           </form>
         </Grid>
         {!isMobile && (
