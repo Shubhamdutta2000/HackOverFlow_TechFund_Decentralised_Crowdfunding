@@ -49,7 +49,7 @@
 
 - NextJS (For Frontend)
 - Material-UI (For Styling)
-- React-Moralis (For Backend and Decentralised part)
+- Moralis Web3 (For Decentralised Backend and Blockchain implementation)
 
 <br />
 
