@@ -46,7 +46,7 @@ export default function DiscoverCard({ idea }) {
               component='div'
               className={classes.discoverCard_heading}
             >
-              {idea && idea.description && idea.description.substring(0, 18)}..
+              {idea && idea.title && idea.title.substring(0, 16)}..
             </Typography>
             <Typography
               variant='description'
