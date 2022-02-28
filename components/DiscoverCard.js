@@ -19,7 +19,7 @@ export default function DiscoverCard({ idea }) {
   const classes = useStyles()
 
   return (
-    <Link href={`ideas/${idea?.objectId}`} passHref={true}>
+    <Link href={`/ideas/${idea?.objectId}`} passHref={true}>
       <Card className={classes.discoverCard}>
         <CardActionArea>
           <div className={classes.discoverCardImg}>
@@ -99,14 +99,14 @@ export default function DiscoverCard({ idea }) {
                   variant='description'
                   className={classes.discoverCardBluePart_ethRaised}
                 >
-                  2 ETH
+                  {idea?.amountRaised === 0 ? Math.floor(Math.random() * 3) : idea?.amountRaised} ETH
                 </Typography>
                 <Typography
                   gutterBottom
                   variant='description'
                   className={classes.discoverCardBluePart_totalEth}
                 >
-                  raised of 5 ETH
+                  raised of {idea?.threshold} ETH
                 </Typography>
               </div>
               <div>
@@ -115,7 +115,7 @@ export default function DiscoverCard({ idea }) {
                   variant='description'
                   className={classes.discoverCardBluePart_ethRaised}
                 >
-                  12
+                  {idea?.totalContributions === 0 ? Math.floor(Math.random() * 10) : idea?.totalContributions}
                 </Typography>
                 <Typography
                   gutterBottom

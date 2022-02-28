@@ -30,11 +30,14 @@ import OurVisionImg from "../public/assets/desktop/OurVisionImg.png";
 
 import styles from "../styles/Home.module.css";
 import { useStyles } from "../styles/Home.style.js";
+import { useEffect, useState } from "react";
+import { useMoralisQuery } from "react-moralis";
 
 export default function Home() {
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width:600px)");
   const router = useRouter();
+  const [ideas, setIdeas] = useState([])
 
   const responsive = {
     428: { items: 1 },
@@ -42,13 +45,24 @@ export default function Home() {
     1024: { items: 4 },
   };
 
-  const items = [
-    <DiscoverCard key={1} />,
-    <DiscoverCard key={2} />,
-    <DiscoverCard key={3} />,
-    <DiscoverCard key={4} />,
-    <DiscoverCard key={5} />,
-  ];
+  const {
+    data: ideaData,
+    error: ideaError,
+    isLoading,
+  } = useMoralisQuery('Idea')
+
+  useEffect(() => {
+    if (ideaData != undefined && ideaData != null) {
+      var json = JSON.stringify(ideaData, null, 2)
+      var obj = JSON.parse(json)
+      setIdeas(obj)
+    }
+  }, [ideaData])
+
+
+  const items = ideas?.map((idea) => (
+    <DiscoverCard key={idea.objectId} idea={idea} />
+  ))
 
 
   return (
