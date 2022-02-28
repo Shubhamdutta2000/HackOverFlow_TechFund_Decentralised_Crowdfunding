@@ -166,7 +166,7 @@ const ContributorDashboardComp = () => {
                     src={"/assets/desktop/MetamaskImg.png"}
                     style={{
                       position: "absolute",
-                      right: "0",
+                      right: "2.5vw",
                       bottom: "0",
                       height: "2.5rem",
                     }}
@@ -190,6 +190,7 @@ const ContributorDashboardComp = () => {
                         marginRight: "4rem",
                         fontSize: "1.5rem",
                         marginTop: "0.7rem",
+                        color: "#d3ffd0",
                       }}
                       className={classes.greenText}
                     >
@@ -206,7 +207,11 @@ const ContributorDashboardComp = () => {
                     <Typography
                       variant="ideaStats"
                       className={classes.greenText}
-                      style={{ fontSize: "1.5rem", marginTop: "0.7rem" }}
+                      style={{
+                        fontSize: "1.5rem",
+                        marginTop: "0.7rem",
+                        color: "#D3FFD0",
+                      }}
                     >
                       12
                     </Typography>
@@ -221,7 +226,11 @@ const ContributorDashboardComp = () => {
                     <Typography
                       variant="ideaStats"
                       className={classes.greenText}
-                      style={{ fontSize: "1.5rem", marginTop: "0.7rem" }}
+                      style={{
+                        fontSize: "1.5rem",
+                        marginTop: "0.7rem",
+                        color: "#D3FFD0",
+                      }}
                     >
                       10 ETH
                     </Typography>

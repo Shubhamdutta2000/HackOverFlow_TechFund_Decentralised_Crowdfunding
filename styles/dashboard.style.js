@@ -23,6 +23,13 @@ export const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     justifyContent: "space-around",
   },
+  verifiedImg: {
+    position: "relative",
+    display: "block",
+    width: "40%",
+    align: "right",
+    marginLeft: "55%",
+  },
   greenText: {
     color: "#82ed68",
   },
