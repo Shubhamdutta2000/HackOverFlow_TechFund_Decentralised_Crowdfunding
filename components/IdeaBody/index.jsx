@@ -28,10 +28,14 @@ const IdeaBody = ({ data }) => {
         data={data}
       />
       {/* top section start*/}
-      <Typography variant='h2'>{data && data.title}</Typography>
-      <Typography variant='body2' className={classes.body}>
-        {data && data.description}
-      </Typography>
+      <Typography style={{ fontSize: "38px", marginBottom: "0.5rem" }} component={'h1'} variant='heading'>{data && data.title}</Typography>
+      <Grid container>
+        <Grid item md={6}>
+          <Typography style={{ fontSize: "20px", marginBottom: "0.4rem" }} variant='description' className={classes.body}>
+            {data && data.description}
+          </Typography>
+        </Grid>
+      </Grid>
       <Grid container className={classes.statContainer}>
         <Grid item xs={12} sm={12} md={6} className={classes.details}>
           <div className={classes.detailGroup}>
