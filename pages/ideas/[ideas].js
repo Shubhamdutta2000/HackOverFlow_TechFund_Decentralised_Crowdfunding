@@ -29,19 +29,21 @@ const IndividualIdeaPage = () => {
 
   useEffect(() => {
     if (ideas != undefined && ideas != null) {
-      {
-        var json = JSON.stringify(ideaData, null, 2)
-        var obj = JSON.parse(json)
-        setData(obj[0])
-      }
+      var json = JSON.stringify(ideaData, null, 2)
+      var obj = JSON.parse(json)
+      setData(obj[0])
     }
     console.log(data)
   }, [ideas, ideaData, isLoading])
 
   return (
     <Layout>
-      <IdeaBody data={data}  />
-      <CampaignCarousal color="#333CFF" bgColor="#fff" heading="Related Campaigns" />
+      <IdeaBody data={data} />
+      <CampaignCarousal
+        color='#333CFF'
+        bgColor='#fff'
+        heading='Related Campaigns'
+      />
     </Layout>
   )
 }
