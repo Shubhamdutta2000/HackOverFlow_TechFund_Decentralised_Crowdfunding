@@ -16,7 +16,7 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired
 }
 
-export function TablePaginationActions (props) {
+export default function TablePaginationActions (props) {
   const theme = useTheme()
   const { count, page, rowsPerPage, onPageChange } = props
 

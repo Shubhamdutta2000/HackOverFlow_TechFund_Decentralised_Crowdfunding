@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useStyles } from "../../../../styles/prevContributions.style.js";
-import { TablePaginationActions } from "./TablePaginationActions";
+import TablePaginationActions from "./TablePaginationActions";
 import { useRouter } from "next/router";
 
 const Contributions = () => {
@@ -24,7 +24,7 @@ const Contributions = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  useEffect (() => {
+  useEffect(() => {
     const isAuthenticated = localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user")).isAuthenticated
       : false
