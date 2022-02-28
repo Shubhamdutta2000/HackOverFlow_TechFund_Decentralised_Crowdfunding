@@ -144,6 +144,7 @@ const InnovatorDashboardComp = () => {
                                         label="Overview"
                                         value="1"
                                     />
+                                    <img src={'/assets/desktop/MetamaskImg.png'} style={{ marginLeft: "360px" }} alt="Metamask" />
                                 </TabList>
                             </Box>
                             <TabPanel value="1">
@@ -174,7 +175,6 @@ const InnovatorDashboardComp = () => {
                                         </div>
                                     </Grid>
                                     <Grid item md={3} xs={12}>
-                                        <Image src={Metamask} alt="Metamask"></Image>
                                         <Link href={'/dashboard/innovator/ideas/create'} style={{ textDecoration: "none" }}>
                                             <Button
                                                 type="submit"

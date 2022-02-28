@@ -14,10 +14,12 @@ import {
 
 import DashboardCoverImg from "../../public/assets/desktop/DashboardCoverImg.png";
 import UserPic from "../../public/assets/desktop/InnovatorProfileImg.png";
+import Metamask from "../../public/assets/desktop/MetamaskImg.png";
 
 import { useStyles } from "../../styles/dashboard.style";
 import { useMoralis } from "react-moralis";
 import CampaignCard from "components/CampaignCard";
+import Link from "next/link";
 
 
 const ContributorDashboardComp = () => {
@@ -157,6 +159,7 @@ const ContributorDashboardComp = () => {
                                         label="Investments"
                                         value="2"
                                     />
+                                    <img src={'/assets/desktop/MetamaskImg.png'} style={{ marginLeft: "200px" }} alt="Metamask" />
                                 </TabList>
                             </Box>
                             <TabPanel value="1">
@@ -206,14 +209,16 @@ const ContributorDashboardComp = () => {
                                     </Typography>
                                     <CampaignCard page="dashboard" />
                                 </div>
-                                <Button
-                                    type='submit'
-                                    variant='contained'
-                                    color='primary'
-                                    className={classes.viewAll}
-                                >
-                                    View All Investments
-                                </Button>
+                                <Link style={{ textDecoration: "none" }} href={'/dashboard/contributor/contributions'}>
+                                    <Button
+                                        type='submit'
+                                        variant='contained'
+                                        color='primary'
+                                        className={classes.viewAll}
+                                    >
+                                        View All Investments
+                                    </Button>
+                                </Link>
                             </TabPanel>
                         </TabContext>
                     </Box>
