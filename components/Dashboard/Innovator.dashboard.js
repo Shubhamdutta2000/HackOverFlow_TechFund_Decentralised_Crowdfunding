@@ -18,7 +18,7 @@ import UserPic from "../../public/assets/desktop/InnovatorProfileImg.png";
 import Graph from "../../public/assets/desktop/InnovatorGraphImg.png";
 import Metamask from "../../public/assets/desktop/MetamaskImg.png";
 
-import { useStyles } from "../../styles/contributorDashboard.style";
+import { useStyles } from "../../styles/dashboard.style";
 import Link from "next/link";
 import { useMoralis } from "react-moralis";
 

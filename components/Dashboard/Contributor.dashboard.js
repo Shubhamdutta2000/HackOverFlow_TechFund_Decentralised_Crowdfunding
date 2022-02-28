@@ -15,7 +15,7 @@ import {
 import DashboardCoverImg from "../../public/assets/desktop/DashboardCoverImg.png";
 import UserPic from "../../public/assets/desktop/InnovatorProfileImg.png";
 
-import { useStyles } from "../../styles/contributorDashboard.style";
+import { useStyles } from "../../styles/dashboard.style";
 import { useMoralis } from "react-moralis";
 import CampaignCard from "components/CampaignCard";
 
@@ -206,6 +206,14 @@ const ContributorDashboardComp = () => {
                                     </Typography>
                                     <CampaignCard page="dashboard" />
                                 </div>
+                                <Button
+                                    type='submit'
+                                    variant='contained'
+                                    color='primary'
+                                    className={classes.viewAll}
+                                >
+                                    View All Investments
+                                </Button>
                             </TabPanel>
                         </TabContext>
                     </Box>

@@ -59,15 +59,22 @@ export const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     color: '#fff',
   },
-
   yourLatestSection: {
     position: "relative",
     margin: "2rem 0 1rem",
   },
   yourLatestHeading: {
     position: "relative",
-    fontSize: "2.4rem",
+    fontSize: "1.8rem",
     fontWeight: "500",
-    color: theme.palette.primary.main,
   },
+  viewAll: {
+    fontFamily: "'Euclid Circular A', sans-serif",
+    borderRadius: "100rem",
+    fontSize: "1.16vw",
+    padding: "2vh 5vw",
+    margin: theme.spacing(3, 0, 4),
+    float: 'right',
+    color: '#fff',
+  }
 }))
