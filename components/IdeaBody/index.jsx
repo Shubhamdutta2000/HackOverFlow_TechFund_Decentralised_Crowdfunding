@@ -105,16 +105,16 @@ const IdeaBody = ({ data }) => {
 
       {/* story start */}
 
-      <Grid container className={classes.storyContainer}>
+      <Grid container className={classes.storyContainer} style={{padding: "0"}}>
         <Grid item xs={12} sm={12} md={3}>
-          <Typography variant='h4' className={classes.storyHeader}>
+          <Typography variant='h5' className={classes.storyHeader}>
             Story
           </Typography>
         </Grid>
         {!isMobile && <div className={classes.vl}></div>}
 
-        <Grid item xs={12} sm={12} md={7}>
-          <Typography variant='h4' className={classes.storyDesc}>
+        <Grid item xs={12} sm={12} md={8} style={{margin: "0"}} align="right">
+          <Typography variant='h5' className={classes.storyDesc}>
             {data && data.idea}
           </Typography>
         </Grid>
