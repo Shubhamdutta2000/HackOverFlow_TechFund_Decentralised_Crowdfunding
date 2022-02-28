@@ -1,13 +1,15 @@
-import { makeStyles } from '@mui/styles'
+import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles((theme) => ({
   container: {
-    padding: '4rem',
+    padding: "4rem 0",
+    marginLeft: "7rem",
   },
   header: {
-    color: '#333CFF',
+    color: "#333CFF",
   },
   body: {
-    width: '40rem',
+    marginTop: "1rem",
+    width: "35rem",
   },
-}))
+}));
