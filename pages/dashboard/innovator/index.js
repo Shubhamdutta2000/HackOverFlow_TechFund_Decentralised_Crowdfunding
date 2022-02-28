@@ -1,16 +1,27 @@
-import withAuth from "components/hoc/withAuth";
+import InnovatorDashboardComp from "components/Dashboard/Innovator.dashboard";
 import Layout from "layout/Layout";
 import { useRouter } from "next/router";
-import Dashboard from "./innovatorDashboard";
-// import { useEffect } from "react";
-// import { useMoralis } from "react-moralis"
+import { useEffect } from "react";
 
 const InnovatorDashboard = () => {
     const router = useRouter()
     // const { isAuthenticated, user } = useMoralis()
 
-    return <Dashboard></Dashboard>
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("user")
+            ? JSON.parse(localStorage.getItem("user")).isAuthenticated
+            : false
+        if (!isAuthenticated) {
+            router.push("/login")
+        }
+    }, [router])
+
+    return (
+        <Layout>
+            <InnovatorDashboardComp />
+        </Layout>
+    )
 }
 
-export default withAuth(InnovatorDashboard)
+export default InnovatorDashboard
 

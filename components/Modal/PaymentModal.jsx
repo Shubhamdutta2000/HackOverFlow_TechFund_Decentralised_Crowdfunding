@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Backdrop,
   Box,
@@ -9,8 +9,65 @@ import {
   TextField,
 } from '@mui/material'
 import { useStyles } from '../../styles/PaymentModal/paymentmodal.style'
-const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
+import {
+  useMoralis,
+  useWeb3Transfer,
+  useMoralisQuery,
+  useNewMoralisObject,
+} from 'react-moralis'
+import { Moralis } from 'moralis'
+
+const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
   const classes = useStyles()
+  const [amount, setAmount] = useState(0.0001)
+  const [metamaskAddress, setMetamaskAddress] = useState('')
+
+  const {
+    web3,
+    enableWeb3,
+    isWeb3Enabled,
+    user,
+  } = useMoralis()
+
+  const {
+    data: ideaData,
+    error: queryError,
+    isLoading,
+  } = useMoralisQuery(
+    'User',
+    (query) => query.equalTo('objectId', data && data.createdBy),
+    [data],
+    {
+      live: true,
+    }
+  )
+
+  const {
+    isSaving,
+    error: contribError,
+    save,
+  } = useNewMoralisObject('Contribution')
+
+  var ideaId = data?.objectId
+  var contributorId = user?.get('objectId')
+
+  useEffect(() => {
+    console.log(window.ethereum._state.accounts)
+    var json = JSON.stringify(ideaData, null, 2)
+    var obj = JSON.parse(json)
+    setMetamaskAddress(obj[0] && obj[0].metaMaskAddress)
+    console.log(obj)
+    if (!error) {
+      save({ amount, ideaId, contributorId })
+    }
+  }, [isWeb3Enabled, ideaData, metamaskAddress])
+
+  console.log(metamaskAddress);
+  const { fetch, error, isFetching } = useWeb3Transfer({
+    amount: Moralis.Units.ETH(amount),
+    receiver: metamaskAddress,
+    type: 'native',
+  })
 
   return (
     <div>
@@ -35,17 +92,35 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose }) => {
               to the world!
             </Typography>
             <div className={classes.fieldWrapper}>
-              <TextField placeholder='Enter Amount' className={classes.field} />
+              <TextField
+                onChange={(e) => setAmount(e.target.value)}
+                placeholder='Enter Amount'
+                className={classes.field}
+              />
               <div className={classes.eth}>Eth</div>
             </div>
             <div className={classes.btnWrapper}>
-              <Button
-                variant='contained'
-                color='button'
-                className={classes.btn}
-              >
-                Contribute
-              </Button>
+              {!isWeb3Enabled ? (
+                <Button
+                  variant='contained'
+                  color='button'
+                  className={classes.btn}
+                  onClick={() => enableWeb3()}
+                  disabled={isWeb3Enabled}
+                >
+                  Connect with Metamask
+                </Button>
+              ) : (
+                <Button
+                  variant='contained'
+                  color='button'
+                  className={classes.btn}
+                  onClick={() => fetch()}
+                  disabled={isFetching}
+                >
+                  Contribute
+                </Button>
+              )}
             </div>
           </Box>
         </Fade>

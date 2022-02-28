@@ -3,14 +3,17 @@ import Image from 'next/image'
 import { Grid, Typography, Button, useMediaQuery } from '@mui/material'
 import { useStyles } from '../../styles/IndividualIdea/IdeaBody/ideaBody.style'
 import PaymentModal from '../Modal/PaymentModal'
+import { useMoralis, useWeb3Transfer } from 'react-moralis'
 
-const IdeaBody = () => {
+const IdeaBody = ({ data }) => {
+  const classes = useStyles()
+  const isMobile = useMediaQuery('(max-width:900px)')
   const [open, setOpen] = useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
 
-  const classes = useStyles()
-  const isMobile = useMediaQuery('(max-width:900px)')
+  const { user, isAuthenticated, authenticate } = useMoralis()
+
   return (
     <div className={classes.container}>
       <PaymentModal
@@ -18,20 +21,22 @@ const IdeaBody = () => {
         setOpen={setOpen}
         handleOpen={handleOpen}
         handleClose={handleClose}
+        data={data}
       />
       {/* top section start*/}
-      <Typography variant='h2'>Learn Web 3.0</Typography>
+      <Typography variant='h2'>{data && data.title}</Typography>
       <Typography variant='body2' className={classes.body}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum
-        dolor sit amet.
+        {data && data.desc}
       </Typography>
       <Grid container className={classes.statContainer}>
         <Grid item xs={12} sm={12} md={6} className={classes.details}>
           <div className={classes.detailGroup}>
             <Typography variant='ideaStats' className={classes.greenText}>
-              2 ETH
+              {data && data.threshold} ETH
             </Typography>
-            <Typography variant='ideaStats'>raised of 5 ETH</Typography>
+            <Typography variant='ideaStats'>
+              raised of {data && data.fund} ETH
+            </Typography>
           </div>
           <div className={classes.detailGroup}>
             <Typography variant='ideaStats' className={classes.greenText}>
@@ -82,20 +87,7 @@ const IdeaBody = () => {
 
         <Grid item xs={12} sm={12} md={7}>
           <Typography variant='h4' className={classes.storyDesc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
+            {data && data.idea}
           </Typography>
         </Grid>
       </Grid>
