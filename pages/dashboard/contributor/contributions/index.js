@@ -16,12 +16,22 @@ import {
 } from "@mui/material";
 import { useStyles } from "../../../../styles/prevContributions.style.js";
 import { TablePaginationActions } from "./TablePaginationActions";
+import { useRouter } from "next/router";
 
 const Contributions = () => {
   const classes = useStyles();
-
+  const router = useRouter()
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user")).isAuthenticated
+      : false
+    if (!isAuthenticated) {
+      router.push("/login")
+    }
+  }, [router])
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
