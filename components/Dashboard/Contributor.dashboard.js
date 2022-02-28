@@ -92,6 +92,9 @@ const ContributorDashboardComp = () => {
                                     marginLeft: "50%",
                                     transform: "translateX(-50%)",
                                     fontFamily: "Euclid Circular A, sans-serif",
+                                    "&:hover": {
+                                        background: "#D3FFD0",
+                                    }
                                 }}
                             >
                                 {user && user.get("userType")}
