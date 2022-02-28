@@ -160,6 +160,46 @@ const ContributorDashboardComp = () => {
                                 </TabList>
                             </Box>
                             <TabPanel value="1">
+                                <div className={classes.details} item md={9} xs={12}>
+                                    <div className={classes.detailGroup}>
+                                        <Typography
+                                            variant="ideaStats"
+                                            style={{
+                                                marginRight: "4rem",
+                                            }}
+                                            className={classes.greenText}
+                                        >
+                                            8
+                                        </Typography>
+                                        <Typography variant="ideaStats">Total Ideas</Typography>
+                                    </div>
+                                    <div className={classes.detailGroup}>
+                                        <Typography
+                                            variant="ideaStats"
+                                            className={classes.greenText}
+                                        >
+                                            12
+                                        </Typography>
+                                        <Typography variant="ideaStats">
+                                            Total Contributors
+                                        </Typography>
+                                    </div>
+                                    <div className={classes.detailGroup}>
+                                        <Typography
+                                            variant="ideaStats"
+                                            className={classes.greenText}
+                                        >
+                                            10 ETH
+                                        </Typography>
+                                        <Typography variant="ideaStats">
+                                            Total Profit Till date
+                                        </Typography>
+                                    </div>
+                                </div>
+                                <img style={{ width: "100%", marginTop: "2rem" }} src={'/assets/desktop/AnalyzedViewPart.svg'} />
+
+                            </TabPanel>
+                            <TabPanel value="2">
                                 <div className={classes.yourLatestSection}>
                                     <Typography variant="heading" className={classes.yourLatestHeading}>
                                         Your Latest Campaign Invest

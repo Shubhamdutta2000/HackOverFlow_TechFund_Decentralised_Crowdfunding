@@ -23,6 +23,9 @@ export const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
   },
+  greenText: {
+    color: "#82ed68",
+  },
   detailGroup: {
     display: 'flex',
     flexDirection: 'column',
