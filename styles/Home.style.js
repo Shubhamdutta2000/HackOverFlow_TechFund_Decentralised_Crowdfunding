@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     background: "#fff",
     left: "0",
     top: "0",
-    animation: "$loader__opacity 4.9s",
+    animation: "$loader__opacity 5.1s",
     animationFillMode: "forwards",
     zIndex: "100",
   },
@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     animationDelay: "1.5s",
     animation: "$Loader__enteringBg 2.2s ease",
     animationFillMode: "forwards",
-    animationDelay: "2.5s",
+    animationDelay: "2.7s",
     overflowX: "hidden",
   },
   "@keyframes Loader__enteringBg": {
@@ -57,6 +57,12 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     fontSize: "1.3vw",
     zIndex: "1",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.2rem",
+      bottom: "50%",
+      left: "50%",
+      transform: "translate(-50, -50%)",
+    },
   },
   // Hero starts
   fullHero: {
