@@ -54,40 +54,45 @@ const IdeaForm = () => {
 
   return (
     <div className={classes.container}>
-      <Grid container spacing={'14'} component='main'>
-        <Grid item xs={12} sm={12} md={6} component={Paper} elevation={0}>
-          <form className={classes.form} onSubmit={submitHandler}>
-            <label>Title of your idea</label>
+      <Grid container spacing={'11'} component='main' style={{marginTop: "-4vw"}}>
+        <Grid item xs={12} sm={12} md={6} component={Paper} elevation={0} style={{paddingTop: "0"}}>
+          <form className={classes.form} onSubmit={submitHandler} >
+            <label className={classes.formLabel}>Title of your idea</label>
             <TextField
+              style={{marginTop: "0.2rem", marginBottom: "0"}}
               variant='outlined'
               name='title'
               value={formData.title}
               onChange={(e) => handleChange(e)}
             />
-            <label>Short description</label>
+            <label className={classes.formLabel}>Short description</label>
             <TextField
+              style={{marginTop: "0", marginBottom: "0"}}
               variant='outlined'
               name='description'
               value={formData.description}
               onChange={(e) => handleChange(e)}
             />
-            <label>Minimum amount threshold</label>
+            <label className={classes.formLabel}>Minimum amount threshold</label>
             <TextField
+              style={{marginTop: "0", marginBottom: "0"}}
               variant='outlined'
               name='threshold'
               value={formData.threshold}
               onChange={(e) => handleChange(e)}
             />
-            <label>Total fund required</label>
+            <label className={classes.formLabel}>Total fund required</label>
             <TextField
+              style={{marginTop: "0", marginBottom: "0"}}
               variant='outlined'
               name='fund'
               value={formData.fund}
               onChange={(e) => handleChange(e)}
             />
-            <label>Your idea in detail</label>
+            <label className={classes.formLabel}>Your idea in detail</label>
             <TextareaAutosize
-              minRows={3}
+              style={{marginTop: "0", marginBottom: "0"}}
+              minRows={16}
               className={classes.textarea}
               name='idea'
               value={formData.idea}
@@ -120,7 +125,7 @@ const IdeaForm = () => {
           </form>
         </Grid>
         {!isMobile && (
-          <Grid item xs={false} sm={false} md={6}>
+          <Grid item xs={false} sm={false} md={6} style={{marginTop: "2.1rem"}}>
             <Image
               src='/assets/desktop/LoginImg.png'
               alt='vector'
