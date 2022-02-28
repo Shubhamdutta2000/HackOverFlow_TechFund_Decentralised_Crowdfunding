@@ -213,20 +213,23 @@ const InnovatorDashboardComp = () => {
                                                     padding: "1rem",
                                                 }}
                                             >
-                                                <Button
-                                                    variant="outlined"
-                                                    sx={{
-                                                        fontFamily: "'Euclid Circular A', sans-serif",
-                                                        borderRadius: "100rem",
-                                                        fontSize: "0.9vw",
-                                                        color: "#fff",
-                                                        borderRadius: "18px",
-                                                        border: "3px solid #fff",
-                                                        marginLeft: "75%",
-                                                    }}
-                                                >
-                                                    View
-                                                </Button>
+                                                <Link href={'/dashboard/innovator/ideas'}>
+
+                                                    <Button
+                                                        variant="outlined"
+                                                        sx={{
+                                                            fontFamily: "'Euclid Circular A', sans-serif",
+                                                            borderRadius: "100rem",
+                                                            fontSize: "0.9vw",
+                                                            color: "#fff",
+                                                            borderRadius: "18px",
+                                                            border: "3px solid #fff",
+                                                            marginLeft: "75%",
+                                                        }}
+                                                    >
+                                                        View
+                                                    </Button>
+                                                </Link>
                                             </CardActions>
                                         </Card>
                                     </Grid>
