@@ -19,9 +19,9 @@ const InnovatorIdeas = () => {
     }, [router])
 
     const ideas = [
-        <CampaignCard page="dashboard" innovator={'true'} key={'1'} />,
-        <CampaignCard page="dashboard" innovator={'true'} key={'2'} />,
-        <CampaignCard page="dashboard" innovator={'true'} key={'3'} />
+        <CampaignCard page="dashboard" index={0} key={1} />,
+        <CampaignCard page="dashboard" index={1} key={2} />,
+        <CampaignCard page="dashboard" index={2} key={3} />
     ]
 
 

@@ -6,7 +6,7 @@ import Image from 'next/image'
 import LatestPic from '../public/assets/desktop/DiscoverCardIdeaCoverImg.png'
 import { useMoralisQuery } from 'react-moralis'
 
-export default function CampaignCard({ page }) {
+export default function CampaignCard({ page, index }) {
   const classes = useStyles()
 
   const [idea, setIdea] = useState({})
@@ -17,13 +17,14 @@ export default function CampaignCard({ page }) {
     isLoading,
   } = useMoralisQuery('Idea')
 
+  console.log(index);
   useEffect(() => {
     if (ideaData != undefined && ideaData != null) {
       var json = JSON.stringify(ideaData, null, 2)
       var obj = JSON.parse(json)
-      setIdea(obj[0])
+      setIdea(obj[index])
     }
-  }, [ideaData])
+  }, [ideaData, index])
 
   return (
     <Link href={`/ideas/${idea?.objectId}`} passHref={true}>
