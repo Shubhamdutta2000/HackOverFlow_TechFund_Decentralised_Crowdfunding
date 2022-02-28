@@ -15,7 +15,6 @@ import {
   Typography,
 } from "@mui/material";
 import { useStyles } from "../../../../styles/prevContributions.style.js";
-import TablePaginationActions from "./TablePaginationActions";
 import { useRouter } from "next/router";
 
 const Contributions = () => {
@@ -124,27 +123,6 @@ const Contributions = () => {
               </TableRow>
             ))}
           </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                variant="description"
-                rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-                colSpan={3}
-                count={5}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                SelectProps={{
-                  inputProps: {
-                    "aria-label": "rows per page",
-                  },
-                  native: true,
-                }}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                ActionsComponent={TablePaginationActions}
-              />
-            </TableRow>
-          </TableFooter>
         </Table>
       </TableContainer>
     </Layout>
