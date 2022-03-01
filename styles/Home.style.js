@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     background: "#fff",
     left: "0",
     top: "0",
-    animation: "$loader__opacity 5.1s",
+    animation: "$loader__opacity 4.2s",
     animationFillMode: "forwards",
     zIndex: "100",
   },
@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     animationDelay: "1.5s",
     animation: "$Loader__enteringBg 2.2s ease",
     animationFillMode: "forwards",
-    animationDelay: "2.7s",
+    animationDelay: "1.6s",
     overflowX: "hidden",
   },
   "@keyframes Loader__enteringBg": {
