@@ -95,7 +95,7 @@ export default function Navbar({ path }) {
             </ListItem>
           </Link>
           :
-          <Link href="/ideas/:id" style={{ textDecoration: "none" }}>
+          <Link href="/ideas/SvcdN4WzfOkLqcWJR65rIcD8" style={{ textDecoration: "none" }}>
             <ListItem button>
               <ListItemIcon>
                 <MailIcon />
@@ -171,7 +171,7 @@ export default function Navbar({ path }) {
                   </Typography>
                 </Link>
                 :
-                <Link href="/ideas/:id" style={{ textDecoration: "none" }}>
+                <Link href="/ideas/SvcdN4WzfOkLqcWJR65rIcD8" style={{ textDecoration: "none" }}>
                   <Typography variant="description" className={classes.navItems}>
                     Contribute
                   </Typography>
