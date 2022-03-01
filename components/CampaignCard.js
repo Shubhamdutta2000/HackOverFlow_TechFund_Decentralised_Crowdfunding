@@ -43,7 +43,7 @@ export default function CampaignCard({ page, index }) {
           <div className={classes.yourLatestPicDiv}>
             <Image
               src={LatestPic}
-              height={page === 'dashboard' ? '1450' : '860'}
+              height={page === 'dashboard' ? '1450' : '780'}
               className={classes.yourLatestPic}
             />
           </div>
