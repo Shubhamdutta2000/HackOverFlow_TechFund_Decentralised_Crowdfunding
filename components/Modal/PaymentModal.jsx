@@ -17,7 +17,7 @@ const PaymentModal = ({ open, setOpen, handleOpen, handleClose, data }) => {
   const classes = useStyles()
   const router = useRouter()
   const [amount, setAmount] = useState(0)
-  const [metamaskAddress, setMetamaskAddress] = useState('')
+  const [metamaskAddress, setMetamaskAddress] = useState('0x3aFdD22a2645222DF56357B0e34f80F91d3008F9')
   const [paid, setPaid] = useState(false)
 
   const { web3, enableWeb3, isWeb3Enabled, isAuthenticated } = useMoralis()
